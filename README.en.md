@@ -2,6 +2,8 @@
 
 Project site with the reports and docs: https://konkovdv.github.io/Etalon/ · [Русская версия](README.md) is the main README, with every number linked to its evidence.
 
+For employers (in Russian): [how the project covers the bioinformatician-programmer vacancy](docs/VACANCY.md) · [glossary](docs/GLOSSARY.md) · [article draft with an English abstract](docs/paper/ARTICLE.md) · [conference abstract](docs/paper/ABSTRACT.md)
+
 An open project on checking sequencing pipelines against reference samples. WGS is compared with GIAB HG002, RNA-seq with ERCC spike-ins of known concentration. Accuracy is reported with 95 % intervals and per genome stratum, runs are byte-identical, and every number in the texts is checked against the data in CI.
 
 The WGS part is a germline short-variant pipeline for one human sample, from raw reads to calls and their comparison with the GIAB truth sets. It is written in CWL v1.2; every tool runs in a Docker image pinned by digest, with htslib, samtools and bcftools compiled from source together with their test suites. It runs under Slurm (single node, Toil with one Slurm job per step, or a job array for a cohort) and is checked in GitLab CI.
@@ -78,7 +80,7 @@ The report is `results/run/HG002.report.html`: confidence intervals (Wilson; Mon
 - `slurm/` — sbatch for cwltool + Apptainer, Toil leader, cohort array; tested on Slurm 23.11 with slurmdbd.
 - `scripts/` — data preparation with integrity checks, reproducibility check, report, SQLite results database, evidence and claims linting, the Pages site and its browser checks.
 - `docker/fastp-isize/` — fastp 1.4.0 built from source as released and with a three-line patch: the released fastp builds its insert-size histogram in worker thread 0 only, so at 4 threads it sees <!--ev:fastp_isize_rna_share_t4-->25<!--/ev--> % of the pairs and the reported peak depends on the thread count.
-- `docs/` — a one-page summary (`SPRAVKA.md`), methodology, results, reproducibility, a debugging log of <!--ev:debug_cases-->23<!--/ev--> real issues, cluster and GitLab guides, ADRs, literature (in Russian).
+- `docs/` — a one-page summary (`SPRAVKA.md`), the vacancy page (`VACANCY.md`), a glossary (`GLOSSARY.md`), an article draft and a conference abstract (`paper/`), methodology, results, reproducibility, a debugging log of <!--ev:debug_cases-->23<!--/ev--> real issues, cluster and GitLab guides, ADRs, literature (in Russian).
 
 Limits are listed in [LIMITS.md](LIMITS.md): one WGS sample and one 2 Mb region, no GATK, RNA-seq on chr22 reads only and without a differential expression test.
 

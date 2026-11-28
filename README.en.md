@@ -2,7 +2,7 @@
 
 Project site with the reports and docs: https://konkovdv.github.io/Etalon/ · [Русская версия](README.md) is the main README, with every number linked to its evidence.
 
-For employers (in Russian): [how the project covers the bioinformatician-programmer vacancy](docs/VACANCY.md) · [glossary](docs/GLOSSARY.md) · [article draft with an English abstract](docs/paper/ARTICLE.md) · [conference abstract](docs/paper/ABSTRACT.md)
+For employers (in Russian): [how the project covers the bioinformatician-programmer vacancy](docs/VACANCY.md) · [a plan to strengthen a production WGS pipeline](docs/IMPROVEMENTS.md) · [glossary](docs/GLOSSARY.md) · [article draft with an English abstract](docs/paper/ARTICLE.md) · [conference abstract](docs/paper/ABSTRACT.md)
 
 An open project on checking sequencing pipelines against reference samples. WGS is compared with GIAB HG002, RNA-seq with ERCC spike-ins of known concentration. Accuracy is reported with 95 % intervals and per genome stratum, runs are byte-identical, and every number in the texts is checked against the data in CI.
 

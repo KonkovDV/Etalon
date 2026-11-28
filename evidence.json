@@ -933,14 +933,14 @@
       "hap.py giab_v5.0q": true
     }
   },
-  "source_sha256": "1c46c647a6be195db57c60072eaa6ad62685b56bfe26904b0357a1ab1aeef772",
+  "source_sha256": "518ae5501ad8f3d203afe0643bd5d36a281c1db1b0772687383a40a5d10cb642",
   "tests": {
     "collected": 166,
     "failed": 0,
     "passed": 166,
     "ran": true,
     "returncode": 0,
-    "summary": "166 passed in 5.70s"
+    "summary": "166 passed in 6.01s"
   },
   "versions": {
     "bcftools": "1.25",

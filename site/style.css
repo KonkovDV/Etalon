@@ -195,7 +195,7 @@ figcaption { font-size: 14.5px; color: var(--ink-2); margin-top: 12px; max-width
 .section.alt .card { border-color: transparent; box-shadow: var(--shadow); }
 .card:hover { text-decoration: none; border-color: var(--accent); transform: translateY(-2px); }
 .card b { font: 600 19px/1.25 var(--display); letter-spacing: -.015em; color: var(--ink); }
-.card span { color: var(--ink-2); font-size: 15px; }
+.card span { color: var(--ink-2); font-size: 15px; overflow-wrap: anywhere; }
 .card em { font-style: normal; color: var(--accent); font-size: 15px; margin-top: auto; padding-top: 6px; }
 .card em::after { content: " ›"; }
 

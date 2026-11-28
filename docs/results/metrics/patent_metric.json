@@ -1,0 +1,496 @@
+{
+  "ad_min": 10,
+  "gq_min": 10,
+  "results": {
+    "giab_v4.2.1": {
+      "bcftools": {
+        "literal": {
+          "denominator": 2971,
+          "f": 0.998653651969034,
+          "numerator": 2967,
+          "query_multiallelic": 29,
+          "query_passing_filters": 2995,
+          "query_without_exact_match": 24,
+          "truth_in_denominator_share": 0.9880279348187563,
+          "truth_multiallelic": 30,
+          "truth_total": 3007
+        },
+        "normalized": {
+          "denominator": 3013,
+          "f": 0.9986724195154332,
+          "numerator": 3009,
+          "query_multiallelic": 29,
+          "query_passing_filters": 3024,
+          "query_without_exact_match": 11,
+          "truth_in_denominator_share": 0.9920974646032269,
+          "truth_multiallelic": 30,
+          "truth_total": 3037
+        },
+        "split_only": {
+          "denominator": 3013,
+          "f": 0.9986724195154332,
+          "numerator": 3009,
+          "query_multiallelic": 29,
+          "query_passing_filters": 3024,
+          "query_without_exact_match": 11,
+          "truth_in_denominator_share": 0.9920974646032269,
+          "truth_multiallelic": 30,
+          "truth_total": 3037
+        },
+        "strata": {
+          "all_difficult": {
+            "denominator": 571,
+            "f": 0.9929947460595446,
+            "numerator": 567,
+            "query_multiallelic": 29,
+            "query_passing_filters": 582,
+            "query_without_exact_match": 11,
+            "truth_in_denominator_share": 0.9710884353741497,
+            "truth_multiallelic": 30,
+            "truth_total": 588
+          },
+          "homopolymers_ge7": {
+            "denominator": 275,
+            "f": 0.9963636363636363,
+            "numerator": 274,
+            "query_multiallelic": 29,
+            "query_passing_filters": 278,
+            "query_without_exact_match": 3,
+            "truth_in_denominator_share": 0.9717314487632509,
+            "truth_multiallelic": 30,
+            "truth_total": 283
+          },
+          "not_in_all_difficult": {
+            "denominator": 2442,
+            "f": 1.0,
+            "numerator": 2442,
+            "query_multiallelic": 29,
+            "query_passing_filters": 2442,
+            "query_without_exact_match": 0,
+            "truth_in_denominator_share": 0.9971416904859126,
+            "truth_multiallelic": 30,
+            "truth_total": 2449
+          },
+          "tandem_repeats": {
+            "denominator": 165,
+            "f": 0.9818181818181818,
+            "numerator": 162,
+            "query_multiallelic": 29,
+            "query_passing_filters": 172,
+            "query_without_exact_match": 7,
+            "truth_in_denominator_share": 0.9705882352941176,
+            "truth_multiallelic": 30,
+            "truth_total": 170
+          }
+        }
+      },
+      "deepvariant": {
+        "literal": {
+          "denominator": 2984,
+          "f": 0.9996648793565683,
+          "numerator": 2983,
+          "query_multiallelic": 29,
+          "query_passing_filters": 3004,
+          "query_without_exact_match": 20,
+          "truth_in_denominator_share": 0.9923511805786498,
+          "truth_multiallelic": 30,
+          "truth_total": 3007
+        },
+        "normalized": {
+          "denominator": 3033,
+          "f": 0.9996702934388394,
+          "numerator": 3032,
+          "query_multiallelic": 29,
+          "query_passing_filters": 3033,
+          "query_without_exact_match": 0,
+          "truth_in_denominator_share": 0.9986829107672045,
+          "truth_multiallelic": 30,
+          "truth_total": 3037
+        },
+        "split_only": {
+          "denominator": 3033,
+          "f": 0.9996702934388394,
+          "numerator": 3032,
+          "query_multiallelic": 29,
+          "query_passing_filters": 3033,
+          "query_without_exact_match": 0,
+          "truth_in_denominator_share": 0.9986829107672045,
+          "truth_multiallelic": 30,
+          "truth_total": 3037
+        },
+        "strata": {
+          "all_difficult": {
+            "denominator": 584,
+            "f": 0.9982876712328768,
+            "numerator": 583,
+            "query_multiallelic": 29,
+            "query_passing_filters": 584,
+            "query_without_exact_match": 0,
+            "truth_in_denominator_share": 0.9931972789115646,
+            "truth_multiallelic": 30,
+            "truth_total": 588
+          },
+          "homopolymers_ge7": {
+            "denominator": 283,
+            "f": 1.0,
+            "numerator": 283,
+            "query_multiallelic": 29,
+            "query_passing_filters": 283,
+            "query_without_exact_match": 0,
+            "truth_in_denominator_share": 1.0,
+            "truth_multiallelic": 30,
+            "truth_total": 283
+          },
+          "not_in_all_difficult": {
+            "denominator": 2449,
+            "f": 1.0,
+            "numerator": 2449,
+            "query_multiallelic": 29,
+            "query_passing_filters": 2449,
+            "query_without_exact_match": 0,
+            "truth_in_denominator_share": 1.0,
+            "truth_multiallelic": 30,
+            "truth_total": 2449
+          },
+          "tandem_repeats": {
+            "denominator": 168,
+            "f": 0.9940476190476191,
+            "numerator": 167,
+            "query_multiallelic": 29,
+            "query_passing_filters": 168,
+            "query_without_exact_match": 0,
+            "truth_in_denominator_share": 0.9882352941176471,
+            "truth_multiallelic": 30,
+            "truth_total": 170
+          }
+        }
+      },
+      "strelka2": {
+        "literal": {
+          "denominator": 2980,
+          "f": 0.9986577181208054,
+          "numerator": 2976,
+          "query_multiallelic": 28,
+          "query_passing_filters": 3001,
+          "query_without_exact_match": 21,
+          "truth_in_denominator_share": 0.9910209511140672,
+          "truth_multiallelic": 30,
+          "truth_total": 3007
+        },
+        "normalized": {
+          "denominator": 3020,
+          "f": 0.9983443708609272,
+          "numerator": 3015,
+          "query_multiallelic": 28,
+          "query_passing_filters": 3029,
+          "query_without_exact_match": 9,
+          "truth_in_denominator_share": 0.994402370760619,
+          "truth_multiallelic": 30,
+          "truth_total": 3037
+        },
+        "split_only": {
+          "denominator": 3020,
+          "f": 0.9983443708609272,
+          "numerator": 3015,
+          "query_multiallelic": 28,
+          "query_passing_filters": 3029,
+          "query_without_exact_match": 9,
+          "truth_in_denominator_share": 0.994402370760619,
+          "truth_multiallelic": 30,
+          "truth_total": 3037
+        },
+        "strata": {
+          "all_difficult": {
+            "denominator": 577,
+            "f": 0.9965337954939342,
+            "numerator": 575,
+            "query_multiallelic": 28,
+            "query_passing_filters": 585,
+            "query_without_exact_match": 8,
+            "truth_in_denominator_share": 0.9812925170068028,
+            "truth_multiallelic": 30,
+            "truth_total": 588
+          },
+          "homopolymers_ge7": {
+            "denominator": 279,
+            "f": 0.996415770609319,
+            "numerator": 278,
+            "query_multiallelic": 28,
+            "query_passing_filters": 281,
+            "query_without_exact_match": 2,
+            "truth_in_denominator_share": 0.9858657243816255,
+            "truth_multiallelic": 30,
+            "truth_total": 283
+          },
+          "not_in_all_difficult": {
+            "denominator": 2443,
+            "f": 0.9987720016373312,
+            "numerator": 2440,
+            "query_multiallelic": 28,
+            "query_passing_filters": 2444,
+            "query_without_exact_match": 1,
+            "truth_in_denominator_share": 0.9975500204164965,
+            "truth_multiallelic": 30,
+            "truth_total": 2449
+          },
+          "tandem_repeats": {
+            "denominator": 165,
+            "f": 1.0,
+            "numerator": 165,
+            "query_multiallelic": 28,
+            "query_passing_filters": 171,
+            "query_without_exact_match": 6,
+            "truth_in_denominator_share": 0.9705882352941176,
+            "truth_multiallelic": 30,
+            "truth_total": 170
+          }
+        }
+      }
+    },
+    "giab_v5.0q": {
+      "bcftools": {
+        "literal": {
+          "denominator": 3108,
+          "f": 0.9954954954954955,
+          "numerator": 3094,
+          "query_multiallelic": 52,
+          "query_passing_filters": 3183,
+          "query_without_exact_match": 75,
+          "truth_in_denominator_share": 0.9551321450522434,
+          "truth_multiallelic": 84,
+          "truth_total": 3254
+        },
+        "normalized": {
+          "denominator": 3192,
+          "f": 0.9956140350877193,
+          "numerator": 3178,
+          "query_multiallelic": 52,
+          "query_passing_filters": 3235,
+          "query_without_exact_match": 43,
+          "truth_in_denominator_share": 0.9597113650030066,
+          "truth_multiallelic": 84,
+          "truth_total": 3326
+        },
+        "split_only": {
+          "denominator": 3192,
+          "f": 0.9956140350877193,
+          "numerator": 3178,
+          "query_multiallelic": 52,
+          "query_passing_filters": 3235,
+          "query_without_exact_match": 43,
+          "truth_in_denominator_share": 0.9597113650030066,
+          "truth_multiallelic": 84,
+          "truth_total": 3326
+        },
+        "strata": {
+          "all_difficult": {
+            "denominator": 748,
+            "f": 0.982620320855615,
+            "numerator": 735,
+            "query_multiallelic": 52,
+            "query_passing_filters": 790,
+            "query_without_exact_match": 42,
+            "truth_in_denominator_share": 0.8577981651376146,
+            "truth_multiallelic": 84,
+            "truth_total": 872
+          },
+          "homopolymers_ge7": {
+            "denominator": 390,
+            "f": 0.9794871794871794,
+            "numerator": 382,
+            "query_multiallelic": 52,
+            "query_passing_filters": 399,
+            "query_without_exact_match": 9,
+            "truth_in_denominator_share": 0.8496732026143791,
+            "truth_multiallelic": 84,
+            "truth_total": 459
+          },
+          "not_in_all_difficult": {
+            "denominator": 2444,
+            "f": 0.9995908346972177,
+            "numerator": 2443,
+            "query_multiallelic": 52,
+            "query_passing_filters": 2445,
+            "query_without_exact_match": 1,
+            "truth_in_denominator_share": 0.9959250203748982,
+            "truth_multiallelic": 84,
+            "truth_total": 2454
+          },
+          "tandem_repeats": {
+            "denominator": 225,
+            "f": 0.9777777777777777,
+            "numerator": 220,
+            "query_multiallelic": 52,
+            "query_passing_filters": 255,
+            "query_without_exact_match": 30,
+            "truth_in_denominator_share": 0.8241758241758241,
+            "truth_multiallelic": 84,
+            "truth_total": 273
+          }
+        }
+      },
+      "deepvariant": {
+        "literal": {
+          "denominator": 3157,
+          "f": 0.9984162179284131,
+          "numerator": 3152,
+          "query_multiallelic": 55,
+          "query_passing_filters": 3197,
+          "query_without_exact_match": 40,
+          "truth_in_denominator_share": 0.9701905347264905,
+          "truth_multiallelic": 84,
+          "truth_total": 3254
+        },
+        "normalized": {
+          "denominator": 3217,
+          "f": 0.9978240596829344,
+          "numerator": 3210,
+          "query_multiallelic": 55,
+          "query_passing_filters": 3252,
+          "query_without_exact_match": 35,
+          "truth_in_denominator_share": 0.9672279013830427,
+          "truth_multiallelic": 84,
+          "truth_total": 3326
+        },
+        "split_only": {
+          "denominator": 3217,
+          "f": 0.9978240596829344,
+          "numerator": 3210,
+          "query_multiallelic": 55,
+          "query_passing_filters": 3252,
+          "query_without_exact_match": 35,
+          "truth_in_denominator_share": 0.9672279013830427,
+          "truth_multiallelic": 84,
+          "truth_total": 3326
+        },
+        "strata": {
+          "all_difficult": {
+            "denominator": 768,
+            "f": 0.9908854166666666,
+            "numerator": 761,
+            "query_multiallelic": 55,
+            "query_passing_filters": 799,
+            "query_without_exact_match": 31,
+            "truth_in_denominator_share": 0.8807339449541285,
+            "truth_multiallelic": 84,
+            "truth_total": 872
+          },
+          "homopolymers_ge7": {
+            "denominator": 420,
+            "f": 0.9880952380952381,
+            "numerator": 415,
+            "query_multiallelic": 55,
+            "query_passing_filters": 428,
+            "query_without_exact_match": 8,
+            "truth_in_denominator_share": 0.9150326797385621,
+            "truth_multiallelic": 84,
+            "truth_total": 459
+          },
+          "not_in_all_difficult": {
+            "denominator": 2449,
+            "f": 1.0,
+            "numerator": 2449,
+            "query_multiallelic": 55,
+            "query_passing_filters": 2453,
+            "query_without_exact_match": 4,
+            "truth_in_denominator_share": 0.9979625101874491,
+            "truth_multiallelic": 84,
+            "truth_total": 2454
+          },
+          "tandem_repeats": {
+            "denominator": 213,
+            "f": 0.9906103286384976,
+            "numerator": 211,
+            "query_multiallelic": 55,
+            "query_passing_filters": 234,
+            "query_without_exact_match": 21,
+            "truth_in_denominator_share": 0.7802197802197802,
+            "truth_multiallelic": 84,
+            "truth_total": 273
+          }
+        }
+      },
+      "strelka2": {
+        "literal": {
+          "denominator": 3124,
+          "f": 0.9974391805377721,
+          "numerator": 3116,
+          "query_multiallelic": 51,
+          "query_passing_filters": 3179,
+          "query_without_exact_match": 55,
+          "truth_in_denominator_share": 0.9600491702519975,
+          "truth_multiallelic": 84,
+          "truth_total": 3254
+        },
+        "normalized": {
+          "denominator": 3216,
+          "f": 0.9959577114427861,
+          "numerator": 3203,
+          "query_multiallelic": 51,
+          "query_passing_filters": 3230,
+          "query_without_exact_match": 14,
+          "truth_in_denominator_share": 0.9669272399278412,
+          "truth_multiallelic": 84,
+          "truth_total": 3326
+        },
+        "split_only": {
+          "denominator": 3216,
+          "f": 0.9959577114427861,
+          "numerator": 3203,
+          "query_multiallelic": 51,
+          "query_passing_filters": 3230,
+          "query_without_exact_match": 14,
+          "truth_in_denominator_share": 0.9669272399278412,
+          "truth_multiallelic": 84,
+          "truth_total": 3326
+        },
+        "strata": {
+          "all_difficult": {
+            "denominator": 769,
+            "f": 0.9869960988296489,
+            "numerator": 759,
+            "query_multiallelic": 51,
+            "query_passing_filters": 781,
+            "query_without_exact_match": 12,
+            "truth_in_denominator_share": 0.8818807339449541,
+            "truth_multiallelic": 84,
+            "truth_total": 872
+          },
+          "homopolymers_ge7": {
+            "denominator": 400,
+            "f": 0.9875,
+            "numerator": 395,
+            "query_multiallelic": 51,
+            "query_passing_filters": 403,
+            "query_without_exact_match": 3,
+            "truth_in_denominator_share": 0.8714596949891068,
+            "truth_multiallelic": 84,
+            "truth_total": 459
+          },
+          "not_in_all_difficult": {
+            "denominator": 2447,
+            "f": 0.9987740089906008,
+            "numerator": 2444,
+            "query_multiallelic": 51,
+            "query_passing_filters": 2449,
+            "query_without_exact_match": 2,
+            "truth_in_denominator_share": 0.9971475142624286,
+            "truth_multiallelic": 84,
+            "truth_total": 2454
+          },
+          "tandem_repeats": {
+            "denominator": 234,
+            "f": 0.9829059829059829,
+            "numerator": 230,
+            "query_multiallelic": 51,
+            "query_passing_filters": 241,
+            "query_without_exact_match": 7,
+            "truth_in_denominator_share": 0.8571428571428571,
+            "truth_multiallelic": 84,
+            "truth_total": 273
+          }
+        }
+      }
+    }
+  }
+}

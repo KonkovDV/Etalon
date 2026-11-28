@@ -1,0 +1,2 @@
+# DL3008: apt packages are pinned by the snapshot.debian.org timestamp instead of per-package versions
+ignored: [DL3008]

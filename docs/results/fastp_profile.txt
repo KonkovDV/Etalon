@@ -1,0 +1,11 @@
+# fastp 1.4.0, HG002 mini-dataset (259,084 read pairs), tools image, wall seconds.
+# Command: scripts in docs/DEBUGGING.md (D-05). Output FASTQ md5 identical for -w 1/4/8.
+default flags (-w 4 -z 4, --detect_adapter_for_pe --trim_poly_g)   39.6
+-w 4 --dont_eval_duplication                                        38.8
+-w 4 uncompressed output                                            38.3
+-w 8                                                                39.4
+-w 1                                                                41.6
+plain FASTQ input, --detect_adapter_for_pe --trim_poly_g            39.1
+gzip (not BGZF) input, same flags                                   39.1
+plain input, WITHOUT --detect_adapter_for_pe                         2.1
+plain input, -A (no adapter trimming)                                1.8

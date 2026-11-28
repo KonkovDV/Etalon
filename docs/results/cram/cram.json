@@ -1,0 +1,72 @@
+{
+  "assumptions": {
+    "cohort": 100000,
+    "genome_bp": 2900000000.0,
+    "scale": 1262.4650282676077,
+    "target_depth": 30.0
+  },
+  "formats": [
+    {
+      "bytes": 27191823,
+      "calls_identical": "yes",
+      "cohort_pb": 3.4328725592342786,
+      "format": "BAM",
+      "genome_gb": 34.328725592342785,
+      "index_bytes": 6080,
+      "read_s": 0.303,
+      "read_vs_bam": 1.0,
+      "records_identical": "yes",
+      "sam_bytes_identical": "yes",
+      "share_of_bam": 1.0,
+      "write_s": null
+    },
+    {
+      "bytes": 9274469,
+      "calls_identical": "yes",
+      "cohort_pb": 1.1708692768252051,
+      "format": "CRAM 3.0",
+      "genome_gb": 11.708692768252053,
+      "index_bytes": 857,
+      "read_s": 0.559,
+      "read_vs_bam": 1.8448844884488451,
+      "records_identical": "yes",
+      "sam_bytes_identical": "no",
+      "share_of_bam": 0.3410756608705492,
+      "write_s": 1.426
+    },
+    {
+      "bytes": 7897130,
+      "calls_identical": "yes",
+      "cohort_pb": 0.9969850448682974,
+      "format": "CRAM 3.1",
+      "genome_gb": 9.969850448682974,
+      "index_bytes": 852,
+      "read_s": 0.485,
+      "read_vs_bam": 1.6006600660066006,
+      "records_identical": "yes",
+      "sam_bytes_identical": "no",
+      "share_of_bam": 0.29042297017011326,
+      "write_s": 1.541
+    },
+    {
+      "bytes": 7197039,
+      "calls_identical": "yes",
+      "cohort_pb": 0.9086010044578074,
+      "format": "CRAM 3.1 archive",
+      "genome_gb": 9.086010044578076,
+      "index_bytes": 134,
+      "read_s": 1.813,
+      "read_vs_bam": 5.983498349834983,
+      "records_identical": "yes",
+      "sam_bytes_identical": "no",
+      "share_of_bam": 0.26467659045883024,
+      "write_s": 14.686
+    }
+  ],
+  "mean_depth": 34.4564,
+  "region_bp": 2000000,
+  "versions": [
+    "samtools 1.25",
+    "htslib 1.25"
+  ]
+}

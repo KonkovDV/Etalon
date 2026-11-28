@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "Если используете этот пайплайн, сошлитесь на него так."
+title: "Etalon: пайплайны WGS и RNA-seq на CWL и Docker со сверкой с эталонными образцами GIAB HG002 и ERCC"
+version: 1.0.0
+date-released: 2026-11-25
+license: MIT
+authors:
+  - family-names: Konkov
+    given-names: Dmitrij
+repository-code: "https://github.com/KonkovDV/Etalon"
+keywords:
+  - whole-genome sequencing
+  - germline variant calling
+  - RNA-seq
+  - Common Workflow Language
+  - GIAB HG002
+  - benchmarking
+  - reproducibility
+references:
+  - type: article
+    title: "Best practices for benchmarking germline small-variant calls in human genomes"
+    authors: [{family-names: Krusche, given-names: Peter}]
+    journal: Nature Biotechnology
+    year: 2019
+    doi: 10.1038/s41587-019-0054-x
+  - type: article
+    title: "The GIAB genomic stratifications resource for human reference genomes"
+    authors: [{family-names: Dwarshuis, given-names: Nathan}]
+    journal: Nature Communications
+    year: 2024
+    doi: 10.1038/s41467-024-53260-y
+  - type: article
+    title: "Twelve years of SAMtools and BCFtools"
+    authors: [{family-names: Danecek, given-names: Petr}]
+    journal: GigaScience
+    year: 2021
+    doi: 10.1093/gigascience/giab008

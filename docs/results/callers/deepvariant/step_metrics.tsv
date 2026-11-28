@@ -1,0 +1,6 @@
+step	wall_s	user_s	sys_s	peak_rss_mb	threads
+deepvariant	61.543	160.878	8.254	5459.0	4
+deepvariant_gvcf	0.158	0.151	0.012	12.4	1
+deepvariant_vcf	0.05	0.038	0.016	12.3	1
+happy_giab_v4.2.1	3.078	3.04	1.182	326.1	4
+happy_giab_v5.0q	3.344	3.235	1.219	336.1	4

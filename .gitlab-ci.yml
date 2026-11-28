@@ -1,0 +1,309 @@
+# CI for the GitLab mirror of hg002-mini-wgs.
+#
+#   lint      CWL validation, ruff, shellcheck, hadolint, claims linter
+#   test      unit tests (JUnit in the MR "Tests" tab), no skipped tests allowed
+#   build     tools image from source (htslib/samtools/bcftools make test) -> project registry;
+#             RNA-seq image (STAR release binary, featureCounts from source + its tests)
+#   pipeline  real run on HG002 chr20:10-12 Mb, QC gate, reproducibility (4 vs 2 threads);
+#             RNA-seq on UHR/HBR with ERCC spike-ins, QC gate, reproducibility (4 vs 2 threads)
+#   publish   site for GitLab Pages: overview, the run's HTML report, docs; checked in a browser
+#             on 8 devices x 2 themes + axe-core WCAG 2.2 AA before it is published
+#
+# Every image is pinned by digest, as the Dockerfile base is. Runner requirement
+# for build/pipeline: docker executor with privileged mode (docker:dind).
+# Paths that containers must see live under $CI_PROJECT_DIR: with dind only the
+# build directory is shared between the job container and the Docker daemon.
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS
+      when: never
+    - if: $CI_COMMIT_BRANCH
+    - if: $CI_COMMIT_TAG
+
+stages: [lint, test, build, pipeline, site, publish]
+
+variables:
+  PYTHON_IMAGE: python:3.12-slim@sha256:191083cdf6c7bda8c76158983163ead5d5cf7b77cf3033e805bb0f5296f51b4b
+  DOCKER_IMAGE: docker:29-cli@sha256:0b71875158c7d82829d2933b436bc3f8ca6228d930a37d74199fe0e7d18eeb9b
+  DIND_IMAGE: docker:29-dind@sha256:1c90c08b6c8fc312aa4afd066d19edeb94b0c25384e9e7f2cd9e74a28a670be8
+  PLAYWRIGHT_IMAGE: mcr.microsoft.com/playwright:v1.63.0-noble@sha256:eff16c30e6f3f4af0a03fa4b706120d5e9b0891c344a27d64559aff5900a4a27
+  TOOLS_LOCAL: hg002-mini/tools:1.0.0          # name the CWL files refer to
+  TOOLS_REMOTE: $CI_REGISTRY_IMAGE/tools        # where CI keeps the built image
+  RNASEQ_LOCAL: hg002-mini/rnaseq:1.0.0
+  RNASEQ_REMOTE: $CI_REGISTRY_IMAGE/rnaseq
+  PIP_CACHE_DIR: $CI_PROJECT_DIR/.cache/pip
+  DOCKER_HOST: tcp://docker:2376
+  DOCKER_TLS_CERTDIR: /certs
+  DOCKER_CERT_PATH: /certs/client
+  DOCKER_TLS_VERIFY: "1"
+
+default:
+  interruptible: true
+  retry:
+    max: 1
+    when: [runner_system_failure, stuck_or_timeout_failure]
+
+.python:
+  image: $PYTHON_IMAGE
+  cache:
+    key: pip-$CI_JOB_NAME
+    paths: [.cache/pip]
+  before_script:
+    - pip install -q -r requirements-dev.txt
+
+.docker:
+  image: $DOCKER_IMAGE
+  services:
+    - name: $DIND_IMAGE
+      alias: docker
+  before_script:
+    - until docker info >/dev/null 2>&1; do sleep 1; done
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
+
+# ------------------------------------------------------------------ lint
+lint:cwl:
+  extends: .python
+  stage: lint
+  script:
+    - for f in cwl/tools/*.cwl cwl/workflows/*.cwl; do cwltool --validate "$f" >/dev/null || exit 1; echo "valid $f"; done
+
+lint:python:
+  extends: .python
+  stage: lint
+  script:
+    - ruff check bin scripts tests
+    - ruff format --check bin scripts tests
+
+lint:shell:
+  stage: lint
+  image: koalaman/shellcheck-alpine:v0.10.0@sha256:5921d946dac740cbeec2fb1c898747b6105e585130cc7f0602eec9a10f7ddb63
+  script:
+    - shellcheck -x scripts/*.sh slurm/*.sh slurm/*.sbatch
+
+lint:dockerfile:
+  stage: lint
+  image: hadolint/hadolint:v2.15.1-alpine@sha256:a1d49ae1a4e83c1dbad26b8c1ad7588c8bd1e04f4866b34ad3cac50335198552
+  script:
+    - hadolint --config .hadolint.yaml docker/tools/Dockerfile docker/rnaseq/Dockerfile docker/fastp-isize/Dockerfile
+
+lint:claims:
+  extends: .python
+  stage: lint
+  script:
+    - python scripts/lint_claims.py
+    - python scripts/check_links.py
+    - python scripts/build_evidence.py --verify-source
+
+# ------------------------------------------------------------------ test
+test:unit:
+  extends: .python
+  stage: test
+  script:
+    - python -m pytest --junitxml=var/junit.xml --cov=bin --cov=scripts --cov-report=term --cov-report=xml:var/coverage.xml
+    - python scripts/check_no_skips.py var/junit.xml
+  coverage: '/^TOTAL.*\s(\d+(?:\.\d+)?)%$/'
+  artifacts:
+    when: always
+    reports:
+      junit: var/junit.xml
+      coverage_report:
+        coverage_format: cobertura
+        path: var/coverage.xml
+
+# ------------------------------------------------------------------ build
+build:tools-image:
+  extends: .docker
+  stage: build
+  script:
+    - docker pull "$TOOLS_REMOTE:latest" || true
+    - >
+      docker build --pull
+      --cache-from "$TOOLS_REMOTE:latest"
+      --build-arg RUN_TESTS=1
+      --label org.opencontainers.image.revision="$CI_COMMIT_SHA"
+      --label org.opencontainers.image.source="$CI_PROJECT_URL"
+      -t "$TOOLS_REMOTE:$CI_COMMIT_SHORT_SHA" -t "$TOOLS_REMOTE:latest"
+      docker/tools
+    - docker push "$TOOLS_REMOTE:$CI_COMMIT_SHORT_SHA"
+    - if [ "$CI_COMMIT_BRANCH" = "$CI_DEFAULT_BRANCH" ]; then docker push "$TOOLS_REMOTE:latest"; fi
+    - docker image inspect --format '{{index .RepoDigests 0}}' "$TOOLS_REMOTE:$CI_COMMIT_SHORT_SHA" | tee tools-image-digest.txt
+  artifacts:
+    paths: [tools-image-digest.txt]
+
+build:rnaseq-image:
+  extends: .docker
+  stage: build
+  script:
+    - apk add --no-cache bash curl coreutils >/dev/null
+    # SourceForge mirrors cut transfers off; ADD cannot retry, so the archive is fetched here (D-19)
+    - >
+      scripts/fetch_source.sh 6392d7c66831cdd767e58251892a79a51b6fab8ed0ba9671ad5e85ff1ab01eaa
+      docker/rnaseq/vendor/subread-2.1.1-source.tar.gz
+      https://downloads.sourceforge.net/project/subread/subread-2.1.1/subread-2.1.1-source.tar.gz
+      https://master.dl.sourceforge.net/project/subread/subread-2.1.1/subread-2.1.1-source.tar.gz
+    - docker pull "$RNASEQ_REMOTE:latest" || true
+    - >
+      docker build --pull
+      --cache-from "$RNASEQ_REMOTE:latest"
+      --build-arg RUN_TESTS=1
+      --label org.opencontainers.image.revision="$CI_COMMIT_SHA"
+      --label org.opencontainers.image.source="$CI_PROJECT_URL"
+      -t "$RNASEQ_REMOTE:$CI_COMMIT_SHORT_SHA" -t "$RNASEQ_REMOTE:latest"
+      docker/rnaseq
+    - docker push "$RNASEQ_REMOTE:$CI_COMMIT_SHORT_SHA"
+    - if [ "$CI_COMMIT_BRANCH" = "$CI_DEFAULT_BRANCH" ]; then docker push "$RNASEQ_REMOTE:latest"; fi
+
+# ------------------------------------------------------------------ pipeline
+pipeline:hg002:
+  extends: .docker
+  stage: pipeline
+  needs: [build:tools-image, test:unit]
+  timeout: 45m
+  variables:
+    RESULTS_DB: results/results.sqlite
+  cache:
+    key:
+      files: [config/dataset.env, scripts/prepare_data.sh, scripts/shift_coords.py]
+    paths: [data/]
+  script:
+    - apk add --no-cache python3 py3-pip nodejs bash coreutils make >/dev/null
+    - python3 -m venv .venv && . .venv/bin/activate && pip install -q -r requirements.txt
+    - docker pull "$TOOLS_REMOTE:$CI_COMMIT_SHORT_SHA"
+    - docker tag "$TOOLS_REMOTE:$CI_COMMIT_SHORT_SHA" "$TOOLS_LOCAL"
+    # Data: reused from the cache when the dataset definition did not change; verified either way
+    - if [ ! -s data/MANIFEST.sha256 ]; then make data; fi
+    - (cd data && sha256sum -c --quiet MANIFEST.sha256)
+    - scripts/run_pipeline.sh -o results/run threads=4
+    - python3 scripts/qc_gate.py results/run/HG002.report.json --junit results/qc-junit.xml
+    - scripts/run_pipeline.sh -o results/run_t2 threads=2
+    - scripts/check_reproducibility.sh results/run results/run_t2
+    - python3 scripts/results_db.py ingest results/run results/run_t2
+    - python3 scripts/results_db.py summary | tee results/db-summary.txt
+  artifacts:
+    when: always
+    expire_in: 30 days
+    expose_as: "HG002 report"
+    paths:
+      - results/run/HG002.report.html
+      - results/run/HG002.report.md
+      - results/run/HG002.report.json
+      - results/run/HG002.step_metrics.tsv
+      - results/run/HG002.vcf.gz
+      - results/run/HG002.vcf.gz.tbi
+      - results/run/HG002.bam
+      - results/run/HG002.bam.bai
+      - results/run/giab_*.summary.csv
+      - results/run/giab_*.extended.csv
+      - results/run/cwltool.log
+      - results/reproducibility.md
+      - results/results.sqlite
+      - results/db-summary.txt
+    reports:
+      junit: results/qc-junit.xml
+
+# Strelka2 and DeepVariant on the BAM of pipeline:hg002, then the patent metric next to GA4GH
+pipeline:callers:
+  extends: .docker
+  stage: pipeline
+  needs: [build:tools-image, pipeline:hg002]
+  timeout: 45m
+  cache:
+    key:
+      files: [config/dataset.env, scripts/prepare_data.sh, scripts/shift_coords.py]
+    paths: [data/]
+    policy: pull
+  script:
+    - apk add --no-cache python3 py3-pip bash coreutils make >/dev/null
+    - python3 -m venv .venv && . .venv/bin/activate && pip install -q -r requirements.txt
+    - docker pull "$TOOLS_REMOTE:$CI_COMMIT_SHORT_SHA"
+    - docker tag "$TOOLS_REMOTE:$CI_COMMIT_SHORT_SHA" "$TOOLS_LOCAL"
+    - if [ ! -s data/MANIFEST.sha256 ]; then make data; fi
+    - (cd data && sha256sum -c --quiet MANIFEST.sha256)
+    - make callers metric
+  artifacts:
+    when: always
+    expire_in: 30 days
+    expose_as: "Callers"
+    paths:
+      - results/callers/compare.md
+      - results/callers/compare.json
+      - results/metrics/
+
+# STAR + featureCounts on UHR/HBR with ERCC spike-ins: QC gate, then 4 vs 2 threads
+pipeline:rnaseq:
+  extends: .docker
+  stage: pipeline
+  needs: [build:tools-image, build:rnaseq-image, test:unit]
+  timeout: 45m
+  cache:
+    key:
+      files: [config/rnaseq.env, scripts/prepare_rnaseq_data.sh]
+    paths: [data/rnaseq/]
+  script:
+    - apk add --no-cache python3 py3-pip bash coreutils make >/dev/null
+    - python3 -m venv .venv && . .venv/bin/activate && pip install -q -r requirements.txt
+    - docker pull "$TOOLS_REMOTE:$CI_COMMIT_SHORT_SHA"
+    - docker tag "$TOOLS_REMOTE:$CI_COMMIT_SHORT_SHA" "$TOOLS_LOCAL"
+    - docker pull "$RNASEQ_REMOTE:$CI_COMMIT_SHORT_SHA"
+    - docker tag "$RNASEQ_REMOTE:$CI_COMMIT_SHORT_SHA" "$RNASEQ_LOCAL"
+    - if [ ! -s data/rnaseq/MANIFEST.sha256 ]; then make rnaseq-data; fi
+    - (cd data/rnaseq && sha256sum -c --quiet MANIFEST.sha256)
+    - scripts/run_pipeline.sh -w cwl/workflows/rnaseq.cwl -j cwl/jobs/rnaseq-uhr-hbr.yml -o results/rnaseq threads=4
+    - python3 scripts/qc_gate.py results/rnaseq/rnaseq.report.json --junit results/rnaseq-qc-junit.xml
+    - scripts/run_pipeline.sh -w cwl/workflows/rnaseq.cwl -j cwl/jobs/rnaseq-uhr-hbr.yml -o results/rnaseq_t2 threads=2
+    - scripts/check_rnaseq_reproducibility.sh results/rnaseq results/rnaseq_t2
+  artifacts:
+    when: always
+    expire_in: 30 days
+    expose_as: "RNA-seq report"
+    paths:
+      - results/rnaseq/rnaseq.report.md
+      - results/rnaseq/rnaseq.report.json
+      - results/rnaseq/rnaseq.counts.tsv
+      - results/rnaseq/rnaseq.step_metrics.tsv
+      - results/rnaseq/featureCounts.txt.summary
+      - results/rnaseq/cwltool.log
+      - results/rnaseq_reproducibility.md
+    reports:
+      junit: results/rnaseq-qc-junit.xml
+
+# ------------------------------------------------------------------ site
+site:build:
+  extends: .python
+  stage: site
+  needs: [pipeline:hg002]
+  script:
+    # numbers of THIS run on the overview page; reproducibility and build tests from evidence.json
+    - >
+      python scripts/build_site.py --out public
+      --run-report results/run/HG002.report.json --run-html results/run/HG002.report.html
+      --repo-url "$CI_PROJECT_URL" --commit "$CI_COMMIT_SHORT_SHA"
+  artifacts:
+    paths: [public]
+    expire_in: 7 days
+
+site:check:
+  stage: site
+  image: $PLAYWRIGHT_IMAGE
+  needs: [site:build]
+  script:
+    - cd scripts && npm ci --no-audit --no-fund && cd ..
+    - node scripts/check_site.js public site-shots
+  artifacts:
+    when: always
+    expire_in: 7 days
+    paths: [site-shots]
+
+# ------------------------------------------------------------------ publish
+pages:
+  stage: publish
+  image: $PYTHON_IMAGE
+  needs: [site:build, site:check]
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  script:
+    - ls public
+  artifacts:
+    paths: [public]

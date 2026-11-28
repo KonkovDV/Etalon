@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 1040" width="420" height="1040" role="img" aria-label="Точность от глубины: F1 по GA4GH и F по формуле патента">
+<rect x="0.0" y="0.0" width="420.0" height="1040.0" rx="14" fill="#ffffff"/>
+<text x="16.0" y="34.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="700" fill="#1f2328" text-anchor="start">Точность от глубины</text>
+<text x="16.0" y="56.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#59636e" text-anchor="start">HG002, chr20, прореживание до 5–35x</text>
+<circle cx="21.0" cy="76" r="5" fill="#59636e"/>
+<text x="31.0" y="81.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#1f2328" text-anchor="start">bcftools</text>
+<circle cx="103.0" cy="76" r="5" fill="#257de0"/>
+<text x="113.0" y="81.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#1f2328" text-anchor="start">Strelka2</text>
+<circle cx="185.0" cy="76" r="5" fill="#f47230"/>
+<text x="195.0" y="81.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#1f2328" text-anchor="start">DeepVariant</text>
+<text x="16.0" y="102.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#59636e" text-anchor="start">сплошная — SNV, пунктир — инделы</text>
+<text x="64.0" y="128.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="13.5" font-weight="700" fill="#1f2328" text-anchor="start">F1, GIAB v5.0q</text>
+<rect x="64.0" y="140.0" width="336.0" height="230.0" rx="8" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="64.0" x2="400.0" y1="370.0" y2="370.0" stroke="#d0d7de"/>
+<text x="58.0" y="374.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="end">0.5</text>
+<line x1="64.0" x2="400.0" y1="324.0" y2="324.0" stroke="#d0d7de"/>
+<text x="58.0" y="328.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="end">0.6</text>
+<line x1="64.0" x2="400.0" y1="278.0" y2="278.0" stroke="#d0d7de"/>
+<text x="58.0" y="282.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="end">0.7</text>
+<line x1="64.0" x2="400.0" y1="232.0" y2="232.0" stroke="#d0d7de"/>
+<text x="58.0" y="236.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="end">0.8</text>
+<line x1="64.0" x2="400.0" y1="186.0" y2="186.0" stroke="#d0d7de"/>
+<text x="58.0" y="190.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="end">0.9</text>
+<line x1="64.0" x2="400.0" y1="140.0" y2="140.0" stroke="#d0d7de"/>
+<text x="58.0" y="144.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="end">1.0</text>
+<text x="64.0" y="386.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="middle">0x</text>
+<text x="148.0" y="386.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="middle">10x</text>
+<text x="232.0" y="386.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="middle">20x</text>
+<text x="316.0" y="386.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="middle">30x</text>
+<text x="400.0" y="386.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="middle">40x</text>
+<polyline fill="none" stroke="#59636e" stroke-width="2.2" points="110.3,280.1 154.8,166.8 198.2,150.4 239.3,147.5 279.9,146.9 319.4,146.4 353.4,146.1"/>
+<circle cx="110.3" cy="280.1" r="3.4" fill="#59636e" stroke="#59636e" stroke-width="1.5"/>
+<circle cx="154.8" cy="166.8" r="3.4" fill="#59636e" stroke="#59636e" stroke-width="1.5"/>
+<circle cx="198.2" cy="150.4" r="3.4" fill="#59636e" stroke="#59636e" stroke-width="1.5"/>
+<circle cx="239.3" cy="147.5" r="3.4" fill="#59636e" stroke="#59636e" stroke-width="1.5"/>
+<circle cx="279.9" cy="146.9" r="3.4" fill="#59636e" stroke="#59636e" stroke-width="1.5"/>
+<circle cx="319.4" cy="146.4" r="3.4" fill="#59636e" stroke="#59636e" stroke-width="1.5"/>
+<circle cx="353.4" cy="146.1" r="3.4" fill="#59636e" stroke="#59636e" stroke-width="1.5"/>
+<polyline fill="none" stroke="#59636e" stroke-width="2.2" stroke-dasharray="6 4" points="110.3,356.2 154.8,231.3 198.2,210.0 239.3,196.4 279.9,194.6 319.4,190.9 353.4,182.3"/>
+<circle cx="110.3" cy="356.2" r="3.4" fill="#ffffff" stroke="#59636e" stroke-width="1.5"/>
+<circle cx="154.8" cy="231.3" r="3.4" fill="#ffffff" stroke="#59636e" stroke-width="1.5"/>
+<circle cx="198.2" cy="210.0" r="3.4" fill="#ffffff" stroke="#59636e" stroke-width="1.5"/>
+<circle cx="239.3" cy="196.4" r="3.4" fill="#ffffff" stroke="#59636e" stroke-width="1.5"/>
+<circle cx="279.9" cy="194.6" r="3.4" fill="#ffffff" stroke="#59636e" stroke-width="1.5"/>
+<circle cx="319.4" cy="190.9" r="3.4" fill="#ffffff" stroke="#59636e" stroke-width="1.5"/>
+<circle cx="353.4" cy="182.3" r="3.4" fill="#ffffff" stroke="#59636e" stroke-width="1.5"/>
+<polyline fill="none" stroke="#257de0" stroke-width="2.2" points="110.3,242.1 154.8,161.2 198.2,148.5 239.3,144.4 279.9,143.7 319.4,142.4 353.4,142.1"/>
+<circle cx="110.3" cy="242.1" r="3.4" fill="#257de0" stroke="#257de0" stroke-width="1.5"/>
+<circle cx="154.8" cy="161.2" r="3.4" fill="#257de0" stroke="#257de0" stroke-width="1.5"/>
+<circle cx="198.2" cy="148.5" r="3.4" fill="#257de0" stroke="#257de0" stroke-width="1.5"/>
+<circle cx="239.3" cy="144.4" r="3.4" fill="#257de0" stroke="#257de0" stroke-width="1.5"/>
+<circle cx="279.9" cy="143.7" r="3.4" fill="#257de0" stroke="#257de0" stroke-width="1.5"/>
+<circle cx="319.4" cy="142.4" r="3.4" fill="#257de0" stroke="#257de0" stroke-width="1.5"/>
+<circle cx="353.4" cy="142.1" r="3.4" fill="#257de0" stroke="#257de0" stroke-width="1.5"/>
+<polyline fill="none" stroke="#257de0" stroke-width="2.2" stroke-dasharray="6 4" points="110.3,355.4 154.8,245.9 198.2,205.5 239.3,186.1 279.9,178.2 319.4,171.0 353.4,168.4"/>
+<circle cx="110.3" cy="355.4" r="3.4" fill="#ffffff" stroke="#257de0" stroke-width="1.5"/>
+<circle cx="154.8" cy="245.9" r="3.4" fill="#ffffff" stroke="#257de0" stroke-width="1.5"/>
+<circle cx="198.2" cy="205.5" r="3.4" fill="#ffffff" stroke="#257de0" stroke-width="1.5"/>
+<circle cx="239.3" cy="186.1" r="3.4" fill="#ffffff" stroke="#257de0" stroke-width="1.5"/>
+<circle cx="279.9" cy="178.2" r="3.4" fill="#ffffff" stroke="#257de0" stroke-width="1.5"/>
+<circle cx="319.4" cy="171.0" r="3.4" fill="#ffffff" stroke="#257de0" stroke-width="1.5"/>
+<circle cx="353.4" cy="168.4" r="3.4" fill="#ffffff" stroke="#257de0" stroke-width="1.5"/>
+<polyline fill="none" stroke="#f47230" stroke-width="2.2" points="110.3,198.0 154.8,152.3 198.2,145.3 239.3,143.5 279.9,142.4 319.4,143.2 353.4,142.0"/>
+<circle cx="110.3" cy="198.0" r="3.4" fill="#f47230" stroke="#f47230" stroke-width="1.5"/>
+<circle cx="154.8" cy="152.3" r="3.4" fill="#f47230" stroke="#f47230" stroke-width="1.5"/>
+<circle cx="198.2" cy="145.3" r="3.4" fill="#f47230" stroke="#f47230" stroke-width="1.5"/>
+<circle cx="239.3" cy="143.5" r="3.4" fill="#f47230" stroke="#f47230" stroke-width="1.5"/>
+<circle cx="279.9" cy="142.4" r="3.4" fill="#f47230" stroke="#f47230" stroke-width="1.5"/>
+<circle cx="319.4" cy="143.2" r="3.4" fill="#f47230" stroke="#f47230" stroke-width="1.5"/>
+<circle cx="353.4" cy="142.0" r="3.4" fill="#f47230" stroke="#f47230" stroke-width="1.5"/>
+<polyline fill="none" stroke="#f47230" stroke-width="2.2" stroke-dasharray="6 4" points="110.3,275.7 154.8,205.0 198.2,182.4 239.3,173.6 279.9,168.4 319.4,169.3 353.4,166.2"/>
+<circle cx="110.3" cy="275.7" r="3.4" fill="#ffffff" stroke="#f47230" stroke-width="1.5"/>
+<circle cx="154.8" cy="205.0" r="3.4" fill="#ffffff" stroke="#f47230" stroke-width="1.5"/>
+<circle cx="198.2" cy="182.4" r="3.4" fill="#ffffff" stroke="#f47230" stroke-width="1.5"/>
+<circle cx="239.3" cy="173.6" r="3.4" fill="#ffffff" stroke="#f47230" stroke-width="1.5"/>
+<circle cx="279.9" cy="168.4" r="3.4" fill="#ffffff" stroke="#f47230" stroke-width="1.5"/>
+<circle cx="319.4" cy="169.3" r="3.4" fill="#ffffff" stroke="#f47230" stroke-width="1.5"/>
+<circle cx="353.4" cy="166.2" r="3.4" fill="#ffffff" stroke="#f47230" stroke-width="1.5"/>
+<text x="64.0" y="428.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="13.5" font-weight="700" fill="#1f2328" text-anchor="start">F по патенту, %, v4.2.1</text>
+<rect x="64.0" y="440.0" width="336.0" height="230.0" rx="8" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="64.0" x2="400.0" y1="670.0" y2="670.0" stroke="#d0d7de"/>
+<text x="58.0" y="674.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="end">99.5</text>
+<line x1="64.0" x2="400.0" y1="624.0" y2="624.0" stroke="#d0d7de"/>
+<text x="58.0" y="628.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="end">99.6</text>
+<line x1="64.0" x2="400.0" y1="578.0" y2="578.0" stroke="#d0d7de"/>
+<text x="58.0" y="582.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="end">99.7</text>
+<line x1="64.0" x2="400.0" y1="532.0" y2="532.0" stroke="#d0d7de"/>
+<text x="58.0" y="536.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="end">99.8</text>
+<line x1="64.0" x2="400.0" y1="486.0" y2="486.0" stroke="#d0d7de"/>
+<text x="58.0" y="490.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="end">99.9</text>
+<line x1="64.0" x2="400.0" y1="440.0" y2="440.0" stroke="#d0d7de"/>
+<text x="58.0" y="444.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="end">100.0</text>
+<text x="64.0" y="686.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="middle">0x</text>
+<text x="148.0" y="686.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="middle">10x</text>
+<text x="232.0" y="686.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="middle">20x</text>
+<text x="316.0" y="686.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="middle">30x</text>
+<text x="400.0" y="686.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="middle">40x</text>
+<line x1="64.0" x2="400.0" y1="486.0" y2="486.0" stroke="#1f2328" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="394.0" y="480.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="600" fill="#1f2328" text-anchor="end">порог 99,9 %</text>
+<polyline fill="none" stroke="#59636e" stroke-width="2.2" points="110.3,440.0 154.8,636.2 198.2,572.9 239.3,568.7 279.9,565.4 319.4,517.9 353.4,501.9"/>
+<circle cx="110.3" cy="440.0" r="3.4" fill="#59636e" stroke="#59636e" stroke-width="1.5"/>
+<circle cx="154.8" cy="636.2" r="3.4" fill="#59636e" stroke="#59636e" stroke-width="1.5"/>
+<circle cx="198.2" cy="572.9" r="3.4" fill="#59636e" stroke="#59636e" stroke-width="1.5"/>
+<circle cx="239.3" cy="568.7" r="3.4" fill="#59636e" stroke="#59636e" stroke-width="1.5"/>
+<circle cx="279.9" cy="565.4" r="3.4" fill="#59636e" stroke="#59636e" stroke-width="1.5"/>
+<circle cx="319.4" cy="517.9" r="3.4" fill="#59636e" stroke="#59636e" stroke-width="1.5"/>
+<circle cx="353.4" cy="501.9" r="3.4" fill="#59636e" stroke="#59636e" stroke-width="1.5"/>
+<polyline fill="none" stroke="#257de0" stroke-width="2.2" points="110.3,440.0 154.8,509.5 198.2,532.4 239.3,519.6 279.9,549.0 319.4,532.8 353.4,501.7"/>
+<circle cx="110.3" cy="440.0" r="3.4" fill="#257de0" stroke="#257de0" stroke-width="1.5"/>
+<circle cx="154.8" cy="509.5" r="3.4" fill="#257de0" stroke="#257de0" stroke-width="1.5"/>
+<circle cx="198.2" cy="532.4" r="3.4" fill="#257de0" stroke="#257de0" stroke-width="1.5"/>
+<circle cx="239.3" cy="519.6" r="3.4" fill="#257de0" stroke="#257de0" stroke-width="1.5"/>
+<circle cx="279.9" cy="549.0" r="3.4" fill="#257de0" stroke="#257de0" stroke-width="1.5"/>
+<circle cx="319.4" cy="532.8" r="3.4" fill="#257de0" stroke="#257de0" stroke-width="1.5"/>
+<circle cx="353.4" cy="501.7" r="3.4" fill="#257de0" stroke="#257de0" stroke-width="1.5"/>
+<polyline fill="none" stroke="#f47230" stroke-width="2.2" points="110.3,440.0 154.8,501.6 198.2,475.3 239.3,455.7 279.9,455.5 319.4,455.4 353.4,455.4"/>
+<circle cx="110.3" cy="440.0" r="3.4" fill="#f47230" stroke="#f47230" stroke-width="1.5"/>
+<circle cx="154.8" cy="501.6" r="3.4" fill="#f47230" stroke="#f47230" stroke-width="1.5"/>
+<circle cx="198.2" cy="475.3" r="3.4" fill="#f47230" stroke="#f47230" stroke-width="1.5"/>
+<circle cx="239.3" cy="455.7" r="3.4" fill="#f47230" stroke="#f47230" stroke-width="1.5"/>
+<circle cx="279.9" cy="455.5" r="3.4" fill="#f47230" stroke="#f47230" stroke-width="1.5"/>
+<circle cx="319.4" cy="455.4" r="3.4" fill="#f47230" stroke="#f47230" stroke-width="1.5"/>
+<circle cx="353.4" cy="455.4" r="3.4" fill="#f47230" stroke="#f47230" stroke-width="1.5"/>
+<text x="64.0" y="728.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="13.5" font-weight="700" fill="#1f2328" text-anchor="start">эталон в знаменателе F, v4.2.1</text>
+<rect x="64.0" y="740.0" width="336.0" height="230.0" rx="8" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<line x1="64.0" x2="400.0" y1="970.0" y2="970.0" stroke="#d0d7de"/>
+<text x="58.0" y="974.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="end">0 %</text>
+<line x1="64.0" x2="400.0" y1="912.5" y2="912.5" stroke="#d0d7de"/>
+<text x="58.0" y="916.5" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="end">25 %</text>
+<line x1="64.0" x2="400.0" y1="855.0" y2="855.0" stroke="#d0d7de"/>
+<text x="58.0" y="859.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="end">50 %</text>
+<line x1="64.0" x2="400.0" y1="797.5" y2="797.5" stroke="#d0d7de"/>
+<text x="58.0" y="801.5" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="end">75 %</text>
+<line x1="64.0" x2="400.0" y1="740.0" y2="740.0" stroke="#d0d7de"/>
+<text x="58.0" y="744.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="end">100 %</text>
+<text x="64.0" y="986.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="middle">0x</text>
+<text x="148.0" y="986.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="middle">10x</text>
+<text x="232.0" y="986.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="middle">20x</text>
+<text x="316.0" y="986.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="middle">30x</text>
+<text x="400.0" y="986.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#59636e" text-anchor="middle">40x</text>
+<polyline fill="none" stroke="#59636e" stroke-width="2.2" points="110.3,965.9 154.8,880.4 198.2,784.7 239.3,751.2 279.9,745.5 319.4,744.1 353.4,742.8"/>
+<circle cx="110.3" cy="965.9" r="3.4" fill="#59636e" stroke="#59636e" stroke-width="1.5"/>
+<circle cx="154.8" cy="880.4" r="3.4" fill="#59636e" stroke="#59636e" stroke-width="1.5"/>
+<circle cx="198.2" cy="784.7" r="3.4" fill="#59636e" stroke="#59636e" stroke-width="1.5"/>
+<circle cx="239.3" cy="751.2" r="3.4" fill="#59636e" stroke="#59636e" stroke-width="1.5"/>
+<circle cx="279.9" cy="745.5" r="3.4" fill="#59636e" stroke="#59636e" stroke-width="1.5"/>
+<circle cx="319.4" cy="744.1" r="3.4" fill="#59636e" stroke="#59636e" stroke-width="1.5"/>
+<circle cx="353.4" cy="742.8" r="3.4" fill="#59636e" stroke="#59636e" stroke-width="1.5"/>
+<polyline fill="none" stroke="#257de0" stroke-width="2.2" points="110.3,965.9 154.8,868.8 198.2,779.5 239.3,749.1 279.9,744.0 319.4,742.5 353.4,742.1"/>
+<circle cx="110.3" cy="965.9" r="3.4" fill="#257de0" stroke="#257de0" stroke-width="1.5"/>
+<circle cx="154.8" cy="868.8" r="3.4" fill="#257de0" stroke="#257de0" stroke-width="1.5"/>
+<circle cx="198.2" cy="779.5" r="3.4" fill="#257de0" stroke="#257de0" stroke-width="1.5"/>
+<circle cx="239.3" cy="749.1" r="3.4" fill="#257de0" stroke="#257de0" stroke-width="1.5"/>
+<circle cx="279.9" cy="744.0" r="3.4" fill="#257de0" stroke="#257de0" stroke-width="1.5"/>
+<circle cx="319.4" cy="742.5" r="3.4" fill="#257de0" stroke="#257de0" stroke-width="1.5"/>
+<circle cx="353.4" cy="742.1" r="3.4" fill="#257de0" stroke="#257de0" stroke-width="1.5"/>
+<polyline fill="none" stroke="#f47230" stroke-width="2.2" points="110.3,961.9 154.8,855.8 198.2,770.5 239.3,745.9 279.9,743.2 319.4,742.0 353.4,741.8"/>
+<circle cx="110.3" cy="961.9" r="3.4" fill="#f47230" stroke="#f47230" stroke-width="1.5"/>
+<circle cx="154.8" cy="855.8" r="3.4" fill="#f47230" stroke="#f47230" stroke-width="1.5"/>
+<circle cx="198.2" cy="770.5" r="3.4" fill="#f47230" stroke="#f47230" stroke-width="1.5"/>
+<circle cx="239.3" cy="745.9" r="3.4" fill="#f47230" stroke="#f47230" stroke-width="1.5"/>
+<circle cx="279.9" cy="743.2" r="3.4" fill="#f47230" stroke="#f47230" stroke-width="1.5"/>
+<circle cx="319.4" cy="742.0" r="3.4" fill="#f47230" stroke="#f47230" stroke-width="1.5"/>
+<circle cx="353.4" cy="741.8" r="3.4" fill="#f47230" stroke="#f47230" stroke-width="1.5"/>
+<text x="16.0" y="1026.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="11.5" font-weight="400" fill="#59636e" text-anchor="start">Данные: docs/results/depth/curve.json</text>
+</svg>

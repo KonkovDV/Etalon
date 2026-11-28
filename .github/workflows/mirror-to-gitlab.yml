@@ -1,0 +1,39 @@
+# Push every change of the public GitHub repository to its GitLab mirror, where
+# .gitlab-ci.yml runs the full pipeline on data. Free on both sides; GitLab
+# "pull mirroring" would need a paid tier.
+#
+# Setup (once): in GitLab create the project and a Project Access Token with
+# role Developer+ and scope write_repository; in GitHub add repository secrets
+#   GITLAB_URL    e.g. https://gitlab.com/<group>/hg002-mini-wgs.git
+#   GITLAB_TOKEN  the token
+# See docs/GITLAB.md for the alternative (GitLab push mirror from GitLab side).
+name: mirror-to-gitlab
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mirror
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    if: ${{ vars.GITLAB_MIRROR_ENABLED == 'true' }}
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          fetch-depth: 0
+      - name: Push branches and tags
+        env:
+          GITLAB_URL: ${{ secrets.GITLAB_URL }}
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+        run: |
+          remote="${GITLAB_URL/https:\/\//https://oauth2:${GITLAB_TOKEN}@}"
+          git push --prune "$remote" '+refs/remotes/origin/*:refs/heads/*' '+refs/tags/*:refs/tags/*'

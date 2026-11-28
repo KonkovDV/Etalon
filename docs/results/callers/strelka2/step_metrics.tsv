@@ -1,0 +1,6 @@
+step	wall_s	user_s	sys_s	peak_rss_mb	threads
+happy_giab_v4.2.1	8.303	8.378	1.282	372.9	4
+happy_giab_v5.0q	8.588	8.569	1.049	375.4	4
+strelka2_germline	33.341	19.305	0.359	101.5	4
+strelka2_gvcf	0.086	0.075	0.013	12.3	1
+strelka2_vcf	0.045	0.03	0.02	12.4	1

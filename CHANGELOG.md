@@ -1,0 +1,58 @@
+# Изменения
+
+Формат — [Keep a Changelog](https://keepachangelog.com/ru/1.1.0/), версии — [SemVer](https://semver.org/lang/ru/).
+
+## [Не выпущено]
+
+### Добавлено
+- Сборка и загрузка данных в закрытом контуре: `make image data EXTRA_CA=…` передаёт корневой сертификат прокси в сборку как секрет BuildKit и в контейнер подготовки данных только для чтения; зеркало Debian можно переключить на https ([OFFLINE](docs/OFFLINE.md)).
+
+- Проверка воспроизводимости между процессорами: вход workflow `bwa_simd` запускает выбранную сборку bwa-mem2 (SSE4.1, SSE4.2, AVX, AVX2, AVX-512BW); все пять дают побайтно одинаковые BAM и VCF ([REPRODUCIBILITY](docs/REPRODUCIBILITY.md#процессор-пять-сборок-bwa-mem2)).
+
+- Strelka2 2.9.10 и DeepVariant 1.10 на том же BAM, что bcftools: `cwl/workflows/call-strelka2.cwl`, `call-deepvariant.cwl`, `make callers`; сравнение по GA4GH со стратами, интервалами и парным тестом Макнемара — `scripts/compare_callers.py` ([PRODUCTION](docs/PRODUCTION.md)).
+- Метрика приёмки по формуле патента RU 2846268 рядом с GA4GH: `scripts/concordance.py`, `make metric`; нормализация сверена с `bcftools norm` (`scripts/check_normalization.sh`) ([METRICS](docs/METRICS.md)).
+- `scripts/run_pipeline.sh -w WORKFLOW` и `scripts/make_job.py --for WORKFLOW`: один job-файл для основного workflow и для вызова на готовом BAM.
+- RNA-seq: `cwl/workflows/rnaseq.cwl` (fastp → STAR → featureCounts), образ `docker/rnaseq` (featureCounts из исходников с тестами), данные UHR/HBR с ERCC (`make rnaseq-data`), отчёт со сверкой по ERCC: линейность, кратность по подгруппам, предел обнаружения, реплики, маркерные гены, два независимых счётчика ([RNASEQ](docs/RNASEQ.md)).
+- `scripts/check_rnaseq_reproducibility.sh`: сравнение двух прогонов RNA-seq на семи уровнях, от матрицы счётов до байтов BAM.
+- `scripts/fetch_source.sh`: загрузка исходников с повторами, докачкой и запасными зеркалами ([D-19](docs/DEBUGGING.md#d-19)).
+- GitLab CI: задания `build:rnaseq-image` и `pipeline:rnaseq`.
+- `docker/fastp-isize` и `scripts/check_fastp_isize.sh` (`make fastp-isize-image fastp-isize`): fastp 1.4.0 из исходников как есть и с патчем гистограммы длины вставки, сравнение на 1–4 потоках ([D-23](docs/DEBUGGING.md#d-23)).
+- Точность от глубины (`make depth`): `scripts/depth_series.sh` прореживает пары ридов до 5–35x, на двух глубинах с тремя зёрнами, и прогоняет пайплайн и три вызывателя; `scripts/depth_curve.py` считает F1 по GA4GH и F по патенту с долей эталона в знаменателе; рисунок — `scripts/render_depth_figure.py` ([METRICS](docs/METRICS.md#f-и-глубина)).
+- База частот (`make aggregation`): `scripts/compare_representation.sh` и `scripts/representation.py` сравнивают, как три вызывателя записывают одни и те же варианты, на трёх уровнях ключа и по гаплотипам hap.py, а каждый локус «тот же гаплотип» перепроверяют сборкой гаплотипов из референса; `scripts/callable_sites.py` считает по gVCF, где генотип известен, и AF двумя способами в когорте из копий HG002 ([AGGREGATION](docs/AGGREGATION.md)).
+- Хранение (`make cram`): `scripts/check_cram.sh` переписывает BAM в CRAM 3.0, 3.1 и 3.1 archive, меряет размер и время и проверяет, что записи и вызовы bcftools те же; `scripts/cram_report.py` — таблица и грубая оценка для когорты ([PRODUCTION](docs/PRODUCTION.md#хранение-выравниваний-cram-вместо-bam)).
+- `docs/SPRAVKA.md`: справка на одну страницу — цель, материалы, методы, результаты, выводы, предложения и ограничения; числа сверяются с `evidence.json`, как в остальных документах.
+- `scripts/results_db.py ingest --gvcf`: таблица `callable` и представление `v_allele_frequency_callable`, где AC и AN считаются только по известным генотипам (GQ ≥ 20).
+
+### Изменено
+- Тексты главной страницы сайта, README и документов стали проще: без лозунгов и оценочных слов, выводы в списках без выделения жирным. Числа, ссылки и заголовки не изменились; CITATION.cff описывает проект целиком, вместе с RNA-seq.
+- Сайт Pages: новая главная (шесть основных чисел, два пайплайна, точность, метрика приёмки и глубина, база частот, RNA-seq, инженерия, запуск), спокойная типографика и светлая и тёмная темы на системных шрифтах, без внешних ресурсов. Ссылки в тексте подчёркнуты, рисунки в документах на телефоне показываются в узком варианте. Проверка: 26 страниц на 8 устройствах в двух темах, axe WCAG 2.2 AA без замечаний.
+- README: проект описан целиком — WGS и RNA-seq, метрика приёмки на разной глубине, база частот; рисунок по глубине и команды `make depth aggregation`. Английская версия догнала русскую.
+
+### Исправлено
+- Очистка заголовка VCF сама добавляла строку `##bcftools_viewCommand` со случайным путём и датой; тест политики CWL теперь проверяет `--no-version` у каждого вызова bcftools ([D-15](docs/DEBUGGING.md#d-15)).
+- `build_evidence.py --verify-source` считал устаревшим `evidence.json`, собранный до `git add` новых файлов; теперь в хеш входят и неотслеживаемые, но не игнорируемые исходники ([D-16](docs/DEBUGGING.md#d-16)).
+- `apt` в сборке не читал секрет с сертификатом: секрет монтируется с правами 0444 ([D-13](docs/DEBUGGING.md#d-13)).
+- BAM от STAR при повторе на тех же потоках отличался байтами: границы бинов сортировки зависят от того, какой поток первым заполнил буфер. BAM переписывается блоками htslib ([D-20](docs/DEBUGGING.md#d-20)).
+- Тесты Subread всегда завершаются с кодом 0; сборка сама считает PASS и FAILED ([D-18](docs/DEBUGGING.md#d-18)).
+- `make_job.py` при подмене файла из командной строки терял `format` из job-файла, и cwltool отказывался принимать прореженные риды: формат EDAM теперь переносится.
+- `make site` падал: в Makefile включён `.ONESHELL`, и `cd scripts` перед `npm ci` действовал на следующую строку. Теперь `npm ci` идёт в подоболочке.
+- Пик длины вставки из fastp убран из отчётов: fastp 1.4.0 считает его в одном рабочем потоке, и значение зависит от числа потоков. Эталонный отчёт WGS пересобран из тех же выходов ([D-23](docs/DEBUGGING.md#d-23)).
+
+## [1.0.0] — 2026-11-25
+
+### Добавлено
+- CWL v1.2 workflow: fastp → bwa-mem2 → samtools → bcftools → hap.py (scatter по двум эталонам GIAB) → отчёт; 11 CommandLineTool.
+- Образ `hg002-mini/tools:1.0.0`: htslib, samtools, bcftools 1.25 из исходников с `make test`; bwa-mem2 2.3, fastp 1.4.0; база по digest, пакеты по snapshot.debian.org.
+- Подготовка данных HG002 chr20:10–12 Мб со сверкой референса с UCSC, проверкой REF-аллелей эталонов и MD5 стратификаций.
+- Замер времени и памяти внутри каждого шага (`bin/measure.py`, Python 2.7 и 3).
+- Отчёт: Markdown, HTML с графиками, JSON; интервалы Уилсона и Монте-Карло, модели глубины, тест на 8-oxoG.
+- Порог качества с JUnit-выходом; проверка побайтной воспроизводимости.
+- Slurm: sbatch (cwltool + Apptainer), Toil с задачей на шаг, массив по когорте; сборка `.sif`.
+- База результатов SQLite с вариантами в координатах GRCh38 и представлением AC/AN/AF.
+- GitLab CI (lint, test, build, pipeline, Pages) и GitHub Actions (lint, тесты на трёх версиях Python, Pages, зеркало в GitLab).
+- Сайт для Pages из тех же данных и документов; проверка в браузере на 8 устройствах в двух темах и WCAG 2.2 AA.
+- Реестр утверждений, `evidence.json`, линтер чисел и формулировок, проверка ссылок.
+
+### Исправлено до выпуска
+- Двенадцать случаев из [журнала отладки](docs/DEBUGGING.md), в том числе: `--detect_adapter_for_pe` замедлял fastp в 19 раз (D-05); доля дубликатов считалась вдвое больше (D-06); случайные пути cwltool в заголовках VCF и BAM (D-08); пустые хеши в проверке воспроизводимости (D-09).
+- Пороги качества откалиброваны по нижним границам интервалов эталонного прогона; ограничение по дубликатам перенесено с общей доли на библиотечную.

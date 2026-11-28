@@ -1,0 +1,27 @@
+{
+  "_comment": [
+    "Regression gate, not a quality claim. hap.py limits sit just below the lower",
+    "bound of the 95% interval measured on the reference run (docs/RESULTS.md): a run",
+    "fails only when it is worse than statistical noise allows. Read-level limits",
+    "follow expectations for a PCR-free NovaSeq library; optical duplicates are a",
+    "flow-cell property and are not gated, library (PCR) duplicates are.",
+    "Recalibrate with docs/METHODOLOGY.md#qc-gate when the caller or the data change."
+  ],
+  "happy": {
+    "giab_v5.0q": {
+      "SNP":   {"recall": 0.98, "precision": 0.97},
+      "INDEL": {"recall": 0.85, "precision": 0.87}
+    },
+    "giab_v4.2.1": {
+      "SNP":   {"recall": 0.99, "precision": 0.99},
+      "INDEL": {"recall": 0.95, "precision": 0.95}
+    }
+  },
+  "qc": {
+    "min_mapped_pct": 99.0,
+    "min_mean_depth": 30,
+    "min_ts_tv": 2.0,
+    "max_ts_tv": 2.3,
+    "max_library_dup_rate": 0.08
+  }
+}

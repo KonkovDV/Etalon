@@ -1,0 +1,23 @@
+# data and run outputs are rebuilt by `make data` / `make run` (anchored: docs/results/ IS tracked)
+/data/
+/results/
+/logs/
+/var/
+/public/
+/.toil/
+/.sif/
+/.apptainer-cache/
+*.work/
+# source archives fetched by scripts/fetch_source.sh for `make rnaseq-image`
+/docker/rnaseq/vendor/
+# node (scripts/package-lock.json is tracked)
+/scripts/node_modules/
+# python
+/.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+.cache/

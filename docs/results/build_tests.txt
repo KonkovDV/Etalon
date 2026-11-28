@@ -1,0 +1,16 @@
+# Test-suite summaries from a clean build (docker build --no-cache --build-arg RUN_TESTS=1 docker/tools)
+# order: htslib, samtools, bcftools
+#22 83.83 Number of tests:
+#22 83.83     total   .. 364
+#22 83.83     passed  .. 364
+#22 83.83     failed  .. 0
+#24 51.92 Number of tests:
+#24 51.92     total            .. 1052
+#24 51.92     passed           .. 1020
+#24 51.92     failed           .. 0
+#24 51.92     expected failure .. 32
+#24 51.92     unexpected pass  .. 0
+#26 92.74 Number of tests:
+#26 92.74     total   .. 2538
+#26 92.74     passed  .. 2538
+#26 92.74     failed  .. 0

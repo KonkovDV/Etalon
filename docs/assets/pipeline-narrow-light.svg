@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 668" width="420" height="668" role="img" aria-label="Схема пайплайна HG002 mini-WGS">
+<rect x="0.0" y="0.0" width="420.0" height="668.0" rx="14" fill="#ffffff"/>
+<text x="16.0" y="34.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="19" font-weight="700" fill="#1f2328" text-anchor="start">От сырых ридов до сверки с GIAB</text>
+<text x="16.0" y="58.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="400" fill="#59636e" text-anchor="start">Время и пик памяти измерены внутри шага</text>
+<rect x="16.0" y="84.0" width="388.0" height="64.0" rx="12" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<circle cx="38" cy="116.0" r="12" fill="#257de0"/>
+<text x="38.0" y="120.5" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+<text x="60.0" y="111.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="700" fill="#1f2328" text-anchor="start">Риды</text>
+<text x="60.0" y="131.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#59636e" text-anchor="start">NovaSeq 2×151, chr20</text>
+<text x="390.0" y="111.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="600" fill="#1f2328" text-anchor="end">259 084 пар</text>
+<text x="390.0" y="131.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#59636e" text-anchor="end">глубина 34.5x</text>
+<path d="M38,159.0 l-5,-4 h10 z" fill="#59636e"/>
+<rect x="16.0" y="164.0" width="388.0" height="64.0" rx="12" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<circle cx="38" cy="196.0" r="12" fill="#257de0"/>
+<text x="38.0" y="200.5" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+<text x="60.0" y="191.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="700" fill="#1f2328" text-anchor="start">fastp</text>
+<text x="60.0" y="211.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#59636e" text-anchor="start">адаптеры и poly-G</text>
+<text x="390.0" y="191.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="600" fill="#1f2328" text-anchor="end">2.7 с</text>
+<text x="390.0" y="211.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#59636e" text-anchor="end">1.1 ГБ</text>
+<path d="M38,239.0 l-5,-4 h10 z" fill="#59636e"/>
+<rect x="16.0" y="244.0" width="388.0" height="64.0" rx="12" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<circle cx="38" cy="276.0" r="12" fill="#257de0"/>
+<text x="38.0" y="280.5" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+<text x="60.0" y="271.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="700" fill="#1f2328" text-anchor="start">bwa-mem2</text>
+<text x="60.0" y="291.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#59636e" text-anchor="start">выравнивание, -K 10⁸</text>
+<text x="390.0" y="271.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="600" fill="#1f2328" text-anchor="end">8.6 с</text>
+<text x="390.0" y="291.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#59636e" text-anchor="end">559 МБ</text>
+<path d="M38,319.0 l-5,-4 h10 z" fill="#59636e"/>
+<rect x="16.0" y="324.0" width="388.0" height="64.0" rx="12" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<circle cx="38" cy="356.0" r="12" fill="#257de0"/>
+<text x="38.0" y="360.5" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="700" fill="#ffffff" text-anchor="middle">4</text>
+<text x="60.0" y="351.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="700" fill="#1f2328" text-anchor="start">samtools</text>
+<text x="60.0" y="371.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#59636e" text-anchor="start">sort, markdup, QC</text>
+<text x="390.0" y="351.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="600" fill="#1f2328" text-anchor="end">дубли 10.7 %</text>
+<text x="390.0" y="371.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#59636e" text-anchor="end">оптич. 6.2 %</text>
+<path d="M38,399.0 l-5,-4 h10 z" fill="#59636e"/>
+<rect x="16.0" y="404.0" width="388.0" height="64.0" rx="12" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<circle cx="38" cy="436.0" r="12" fill="#257de0"/>
+<text x="38.0" y="440.5" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="700" fill="#ffffff" text-anchor="middle">5</text>
+<text x="60.0" y="431.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="700" fill="#1f2328" text-anchor="start">bcftools</text>
+<text x="60.0" y="451.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#59636e" text-anchor="start">-X illumina</text>
+<text x="390.0" y="431.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="600" fill="#1f2328" text-anchor="end">10.9 с</text>
+<text x="390.0" y="451.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#59636e" text-anchor="end">Ti/Tv 2.19</text>
+<path d="M38,479.0 l-5,-4 h10 z" fill="#59636e"/>
+<rect x="16.0" y="484.0" width="388.0" height="64.0" rx="12" fill="#eaf2fd" stroke="#257de0" stroke-width="2"/>
+<circle cx="38" cy="516.0" r="12" fill="#257de0"/>
+<text x="38.0" y="520.5" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="700" fill="#ffffff" text-anchor="middle">6</text>
+<text x="60.0" y="511.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="700" fill="#1f2328" text-anchor="start">hap.py</text>
+<text x="60.0" y="531.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#59636e" text-anchor="start">сверка с GIAB v5.0q</text>
+<text x="390.0" y="511.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="600" fill="#1f2328" text-anchor="end">SNV F1 0.9868</text>
+<text x="390.0" y="531.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#59636e" text-anchor="end">INDEL F1 0.9081</text>
+<rect x="16.0" y="568.0" width="388.0" height="88.0" rx="12" fill="#eaf2fd" stroke="#257de0" stroke-width="1"/>
+<text x="30.0" y="593.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="13.5" font-weight="700" fill="#1f2328" text-anchor="start">VCF совпал побайтно: 10 из 10 сравнений</text>
+<text x="30.0" y="616.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#1f2328" text-anchor="start">Тесты сборки: htslib 364/364, bcftools 2538/2538</text>
+<text x="30.0" y="638.0" font-family="system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#1f2328" text-anchor="start">samtools: 1020 пройдено, 0 ошибок · автотестов 166</text>
+</svg>

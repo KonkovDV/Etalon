@@ -1,0 +1,2 @@
+sample	reads_1	reads_2
+HG002	data/reads/HG002_R1.fastq.gz	data/reads/HG002_R2.fastq.gz

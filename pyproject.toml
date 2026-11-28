@@ -1,0 +1,38 @@
+[project]
+name = "hg002-mini-wgs"
+version = "1.0.0"
+description = "Small, reproducible germline WGS pipeline (CWL + Docker) benchmarked on GIAB HG002"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Dmitrij Konkov" }]
+
+[tool.ruff]
+line-length = 120
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "I", "UP", "S", "SIM", "C4"]
+ignore = [
+  "UP",    # bin/measure.py must stay Python 2.7-compatible (hap.py image)
+  "S101",  # assert is how pytest works
+  "S311",  # random is used for Monte Carlo intervals, not for security
+  "S603", "S607",  # subprocess with fixed argv is the purpose of measure.py
+  "S314", "S405",  # parsing JUnit XML that this repository's CI just wrote
+  "SIM108",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S", "B"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.coverage.run]
+branch = true
+
+[tool.ruff.lint.isort]
+known-first-party = ["measure", "make_report", "render_html", "shift_coords", "results_db", "qc_gate", "make_job", "compare_callers", "concordance", "rnaseq_report", "build_evidence", "render_infographic", "render_rnaseq_figure", "depth_curve", "render_depth_figure", "representation", "callable_sites", "cram_report"]

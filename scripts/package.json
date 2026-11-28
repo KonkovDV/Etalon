@@ -1,0 +1,10 @@
+{
+  "name": "etalon-site-check",
+  "private": true,
+  "description": "Browser checks for the Pages site (scripts/check_site.js)",
+  "license": "MIT",
+  "devDependencies": {
+    "axe-core": "4.14.1",
+    "playwright": "1.63.0"
+  }
+}

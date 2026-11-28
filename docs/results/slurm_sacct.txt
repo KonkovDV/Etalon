@@ -1,0 +1,16 @@
+JobID                                         JobName      State    Elapsed  ReqCPUS     ReqMem 
+------------ ---------------------------------------- ---------- ---------- -------- ---------- 
+1                                      hg002-mini-wgs  COMPLETED   00:01:05        4         4G 
+2            toil_job_2_mini_wgs.bwa_mem2_index.bwa_+  COMPLETED   00:00:04        1         2G 
+3                     toil_job_4_mini_wgs.fastp.fastp  COMPLETED   00:00:05        4         2G 
+4            toil_job_6_mini_wgs.bwa_mem2_mem.bwa_me+  COMPLETED   00:00:13        4         4G 
+5            toil_job_8_mini_wgs.samtools_sort.samto+  COMPLETED   00:00:04        4      2.50G 
+6            toil_job_10_mini_wgs.samtools_markdup.s+  COMPLETED   00:00:04        4         2G 
+7            toil_job_12_mini_wgs.bcftools_call.bcft+  COMPLETED   00:00:14        2         1G 
+8            toil_job_13_mini_wgs.samtools_qc.samtoo+  COMPLETED   00:00:05        4         1G 
+9            toil_job_14_mini_wgs.bcftools_filter.bc+  COMPLETED   00:00:01        1       512M 
+10           toil_job_15_mini_wgs.bcftools_stats.bcf+  COMPLETED   00:00:01        1       512M 
+11                       toil_job_19_mini_wgs.1.happy  COMPLETED   00:00:07        4         4G 
+12                       toil_job_20_mini_wgs.0.happy  COMPLETED   00:00:08        4         4G 
+13                 toil_job_22_mini_wgs.report.report  COMPLETED   00:00:05        1       512M 
+14_1                                  mini-wgs-cohort  COMPLETED   00:00:50        4         4G 

@@ -1,0 +1,20 @@
+{
+  "_comment": [
+    "Regression gate, not a quality claim: each limit sits below what the reference",
+    "run measured on UHR/HBR (docs/RNASEQ.md), so a run fails only when it is clearly",
+    "worse. Mapping and strand limits suit a stranded human library; ERCC limits use",
+    "the theory of a linear assay (slope 1) with room for the measured spread; the",
+    "subgroup bias is in log2 units after the mRNA-fraction offset is removed.",
+    "Recalibrate after changing the aligner, the annotation or the data."
+  ],
+  "rnaseq": {
+    "min_unique_pct": 95.0,
+    "min_assigned_pct": 70.0,
+    "min_strand_share": 0.94,
+    "min_ercc_r2": 0.95,
+    "min_ercc_slope": 0.85,
+    "max_ercc_slope": 1.10,
+    "max_ercc_bias_log2": 0.30,
+    "min_replicate_pearson": 0.97
+  }
+}

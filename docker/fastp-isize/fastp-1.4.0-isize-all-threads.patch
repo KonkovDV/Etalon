@@ -1,0 +1,37 @@
+diff --git a/src/peprocessor.cpp b/src/peprocessor.cpp
+index e5a3a21..7175846 100644
+--- a/src/peprocessor.cpp
++++ b/src/peprocessor.cpp
+@@ -436,7 +436,7 @@ bool PairEndProcessor::processPairEnd(ReadPack* leftPack, ReadPack* rightPack, T
+         // Cache overlap result: compute once, reuse for adapter trimming, correction, isize, and merge
+         OverlapResult ov = {};
+         bool ovComputed = false;
+-        if(r1 != NULL && r2!=NULL && (mOptions->adapter.enabled || mOptions->correction.enabled || config->getThreadId() == 0 || mOptions->merge.enabled)){
++        if(r1 != NULL && r2!=NULL){
+             ov = OverlapAnalysis::analyze(r1, r2, mOptions->overlapDiffLimit, mOptions->overlapRequire, mOptions->overlapDiffPercentLimit/100.0);
+             ovComputed = true;
+         }
+@@ -446,11 +446,9 @@ bool PairEndProcessor::processPairEnd(ReadPack* leftPack, ReadPack* rightPack, T
+             OverlapResult ovForAdapter = mOptions->adapter.allowGapOverlapTrimming
+                 ? OverlapAnalysis::analyze(r1, r2, mOptions->overlapDiffLimit, mOptions->overlapRequire, mOptions->overlapDiffPercentLimit/100.0, true)
+                 : ov;
+-            // we only use thread 0 to evaluate ISIZE
+-            if(config->getThreadId() == 0) {
+-                statInsertSize(r1, r2, ov, frontTrimmed1, frontTrimmed2);
+-                isizeEvaluated = true;
+-            }
++            // every worker evaluates ISIZE: the histogram is atomic, so the result does not depend on the thread count
++            statInsertSize(r1, r2, ov, frontTrimmed1, frontTrimmed2);
++            isizeEvaluated = true;
+             if(mOptions->correction.enabled && !ovForAdapter.hasGap) {
+                 // no gap allowed for overlap correction
+                 BaseCorrector::correctByOverlapAnalysis(r1, r2, config->getFilterResult(), ovForAdapter);
+@@ -495,7 +493,7 @@ bool PairEndProcessor::processPairEnd(ReadPack* leftPack, ReadPack* rightPack, T
+             }
+         }
+ 
+-        if(config->getThreadId() == 0 && !isizeEvaluated && r1 != NULL && r2!=NULL) {
++        if(!isizeEvaluated && r1 != NULL && r2!=NULL) {
+             if(!ovComputed) {
+                 ov = OverlapAnalysis::analyze(r1, r2, mOptions->overlapDiffLimit, mOptions->overlapRequire, mOptions->overlapDiffPercentLimit/100.0);
+                 ovComputed = true;

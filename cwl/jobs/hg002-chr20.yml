@@ -1,0 +1,37 @@
+# Job file for cwl/workflows/mini-wgs.cwl on the data built by `make data`.
+# Paths are relative to this file.
+sample: HG002
+threads: 4
+
+reads_1:
+  class: File
+  location: ../../data/reads/HG002_R1.fastq.gz
+  format: http://edamontology.org/format_1930
+reads_2:
+  class: File
+  location: ../../data/reads/HG002_R2.fastq.gz
+  format: http://edamontology.org/format_1930
+
+reference:
+  class: File
+  location: ../../data/ref/ref.fa
+  format: http://edamontology.org/format_1929
+
+# Primary: GIAB v5.0q (assembly-based, current). Secondary: v4.2.1 (classic).
+truth_names: [giab_v5.0q, giab_v4.2.1]
+truth_vcfs:
+  - {class: File, location: ../../data/truth/giab_v5.0q.vcf.gz}
+  - {class: File, location: ../../data/truth/giab_v4.2.1.vcf.gz}
+truth_beds:
+  - {class: File, location: ../../data/truth/giab_v5.0q.bed}
+  - {class: File, location: ../../data/truth/giab_v4.2.1.bed}
+
+stratification:
+  class: Directory
+  location: ../../data/strat
+
+qc_thresholds:
+  class: File
+  location: ../../config/qc_thresholds.json
+
+mpileup_profile: illumina

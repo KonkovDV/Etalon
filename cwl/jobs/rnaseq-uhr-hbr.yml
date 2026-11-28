@@ -1,0 +1,37 @@
+# Job file for cwl/workflows/rnaseq.cwl on the data built by `make rnaseq-data`.
+# Paths are relative to this file. Per-sample arrays share one order.
+samples: [UHR_Rep1, UHR_Rep2, UHR_Rep3, HBR_Rep1, HBR_Rep2, HBR_Rep3]
+groups: [UHR, UHR, UHR, HBR, HBR, HBR]
+ercc_mixes: [Mix1, Mix1, Mix1, Mix2, Mix2, Mix2]
+threads: 4
+# reverse-stranded (dUTP) libraries; the report infers it and the QC gate checks
+strandedness: 2
+
+reads_1:
+  - {class: File, location: ../../data/rnaseq/reads/UHR_Rep1_R1.fastq.gz, format: http://edamontology.org/format_1930}
+  - {class: File, location: ../../data/rnaseq/reads/UHR_Rep2_R1.fastq.gz, format: http://edamontology.org/format_1930}
+  - {class: File, location: ../../data/rnaseq/reads/UHR_Rep3_R1.fastq.gz, format: http://edamontology.org/format_1930}
+  - {class: File, location: ../../data/rnaseq/reads/HBR_Rep1_R1.fastq.gz, format: http://edamontology.org/format_1930}
+  - {class: File, location: ../../data/rnaseq/reads/HBR_Rep2_R1.fastq.gz, format: http://edamontology.org/format_1930}
+  - {class: File, location: ../../data/rnaseq/reads/HBR_Rep3_R1.fastq.gz, format: http://edamontology.org/format_1930}
+reads_2:
+  - {class: File, location: ../../data/rnaseq/reads/UHR_Rep1_R2.fastq.gz, format: http://edamontology.org/format_1930}
+  - {class: File, location: ../../data/rnaseq/reads/UHR_Rep2_R2.fastq.gz, format: http://edamontology.org/format_1930}
+  - {class: File, location: ../../data/rnaseq/reads/UHR_Rep3_R2.fastq.gz, format: http://edamontology.org/format_1930}
+  - {class: File, location: ../../data/rnaseq/reads/HBR_Rep1_R2.fastq.gz, format: http://edamontology.org/format_1930}
+  - {class: File, location: ../../data/rnaseq/reads/HBR_Rep2_R2.fastq.gz, format: http://edamontology.org/format_1930}
+  - {class: File, location: ../../data/rnaseq/reads/HBR_Rep3_R2.fastq.gz, format: http://edamontology.org/format_1930}
+
+reference:
+  class: File
+  location: ../../data/rnaseq/ref/chr22_ERCC92.fa
+  format: http://edamontology.org/format_1929
+annotation:
+  class: File
+  location: ../../data/rnaseq/ref/chr22_ERCC92.gtf
+ercc_table:
+  class: File
+  location: ../../data/rnaseq/truth/ercc_concentrations.tsv
+qc_thresholds:
+  class: File
+  location: ../../config/rnaseq_qc_thresholds.json

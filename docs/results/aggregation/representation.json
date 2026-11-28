@@ -1,0 +1,472 @@
+{
+  "callers": {
+    "bcftools": {
+      "norm": 3298,
+      "raw": 3244,
+      "split": 3298
+    },
+    "deepvariant": {
+      "norm": 3300,
+      "raw": 3241,
+      "split": 3300
+    },
+    "strelka2": {
+      "norm": 3247,
+      "raw": 3196,
+      "split": 3247
+    }
+  },
+  "loci": [
+    {
+      "in_difficult": true,
+      "locus": "chr20:10061050–10061109",
+      "pairs": [
+        "strelka2/deepvariant"
+      ],
+      "verified": true
+    },
+    {
+      "in_difficult": true,
+      "locus": "chr20:10378933–10378951",
+      "pairs": [
+        "strelka2/deepvariant"
+      ],
+      "verified": true
+    },
+    {
+      "in_difficult": false,
+      "locus": "chr20:10451076–10451079",
+      "pairs": [
+        "bcftools/deepvariant",
+        "strelka2/deepvariant"
+      ],
+      "verified": true
+    },
+    {
+      "in_difficult": true,
+      "locus": "chr20:11003697–11003712",
+      "pairs": [
+        "bcftools/deepvariant",
+        "strelka2/deepvariant"
+      ],
+      "verified": true
+    },
+    {
+      "in_difficult": true,
+      "locus": "chr20:11317824–11317863",
+      "pairs": [
+        "bcftools/deepvariant",
+        "strelka2/deepvariant"
+      ],
+      "verified": true
+    },
+    {
+      "in_difficult": false,
+      "locus": "chr20:11406017–11406023",
+      "pairs": [
+        "bcftools/deepvariant",
+        "strelka2/deepvariant"
+      ],
+      "verified": true
+    },
+    {
+      "in_difficult": true,
+      "locus": "chr20:11417946–11417980",
+      "pairs": [
+        "strelka2/deepvariant"
+      ],
+      "verified": true
+    },
+    {
+      "in_difficult": true,
+      "locus": "chr20:11447311–11447339",
+      "pairs": [
+        "strelka2/deepvariant"
+      ],
+      "verified": true
+    },
+    {
+      "in_difficult": true,
+      "locus": "chr20:11747203–11747231",
+      "pairs": [
+        "strelka2/deepvariant"
+      ],
+      "verified": true
+    },
+    {
+      "in_difficult": true,
+      "locus": "chr20:11770331–11770403",
+      "pairs": [
+        "strelka2/deepvariant"
+      ],
+      "verified": true
+    },
+    {
+      "in_difficult": true,
+      "locus": "chr20:11971326–11971345",
+      "pairs": [
+        "bcftools/deepvariant",
+        "strelka2/deepvariant"
+      ],
+      "verified": true
+    }
+  ],
+  "pairs": [
+    {
+      "a": "bcftools",
+      "b": "strelka2",
+      "breakdown": {
+        "raw_discordant": 146,
+        "real": 121,
+        "removed_by_left_shift": 0,
+        "removed_by_split": 25,
+        "representation_share": 0.17123287671232876,
+        "same_haplotype": 0
+      },
+      "examples": [],
+      "fn": 107,
+      "fp": 65,
+      "fp_genotype_only": 22,
+      "gt_differs": 26,
+      "kinds": {},
+      "loci": [],
+      "norm": {
+        "only_a": 86,
+        "only_b": 35,
+        "shared": 3212
+      },
+      "raw": {
+        "only_a": 97,
+        "only_b": 49,
+        "shared": 3147
+      },
+      "real_only_a": 86,
+      "real_only_b": 35,
+      "same_haplotype_loci": 0,
+      "same_haplotype_loci_verified": 0,
+      "same_haplotype_only_a": 0,
+      "same_haplotype_only_b": 0,
+      "split": {
+        "only_a": 86,
+        "only_b": 35,
+        "shared": 3212
+      }
+    },
+    {
+      "a": "bcftools",
+      "b": "deepvariant",
+      "breakdown": {
+        "raw_discordant": 191,
+        "real": 123,
+        "removed_by_left_shift": 0,
+        "removed_by_split": 49,
+        "representation_share": 0.35602094240837695,
+        "same_haplotype": 19
+      },
+      "examples": [
+        {
+          "bcftools": [
+            "10451076 T>TAAATA 0/1",
+            "10451077 T>A 0/1"
+          ],
+          "deepvariant": [
+            "10451076 T>TAAA 0/1",
+            "10451077 T>TAA 0/1"
+          ],
+          "haplotypes": [
+            "GTCATTTAAAT(A)4TTAGTC"
+          ],
+          "kind": "инделы разложены по-разному",
+          "locus": "chr20:10451076–10451079",
+          "ref": "GTCA(T)4ATTTAGTC",
+          "shared": [
+            "10451079 T>A 0/1"
+          ]
+        },
+        {
+          "bcftools": [
+            "11406017 ATTTCT>A 1/1",
+            "11406023 T>C 1/1"
+          ],
+          "deepvariant": [
+            "11406017 ATTT>A 1/1",
+            "11406021 CTT>C 1/1"
+          ],
+          "haplotypes": [
+            "ATGGATACTTCATG",
+            "ATGGATACTTCATG"
+          ],
+          "kind": "инделы разложены по-разному",
+          "locus": "chr20:11406017–11406023",
+          "ref": "ATGGATATTTC(T)4CATG",
+          "shared": []
+        },
+        {
+          "bcftools": [
+            "11971326 A>AAT 0/1",
+            "11971345 T>A 0/1"
+          ],
+          "deepvariant": [
+            "11971344 T>TA 0/1",
+            "11971345 T>TA 0/1"
+          ],
+          "haplotypes": [
+            "GTGTATA(AT)10A(AT)3"
+          ],
+          "kind": "инделы разложены по-разному",
+          "locus": "chr20:11971326–11971345",
+          "ref": "GTGTATA(AT)9(TA)3T",
+          "shared": []
+        }
+      ],
+      "fn": 82,
+      "fp": 83,
+      "fp_genotype_only": 18,
+      "gt_differs": 24,
+      "kinds": {
+        "инделы разложены по-разному": 5
+      },
+      "loci": [
+        {
+          "chrom": "chr20_10000001_12000000",
+          "end": 451079,
+          "kind": "инделы разложены по-разному",
+          "start": 451076,
+          "verified": true
+        },
+        {
+          "chrom": "chr20_10000001_12000000",
+          "end": 1003712,
+          "kind": "инделы разложены по-разному",
+          "start": 1003697,
+          "verified": true
+        },
+        {
+          "chrom": "chr20_10000001_12000000",
+          "end": 1317863,
+          "kind": "инделы разложены по-разному",
+          "start": 1317824,
+          "verified": true
+        },
+        {
+          "chrom": "chr20_10000001_12000000",
+          "end": 1406023,
+          "kind": "инделы разложены по-разному",
+          "start": 1406017,
+          "verified": true
+        },
+        {
+          "chrom": "chr20_10000001_12000000",
+          "end": 1971345,
+          "kind": "инделы разложены по-разному",
+          "start": 1971326,
+          "verified": true
+        }
+      ],
+      "norm": {
+        "only_a": 70,
+        "only_b": 72,
+        "shared": 3228
+      },
+      "raw": {
+        "only_a": 97,
+        "only_b": 94,
+        "shared": 3147
+      },
+      "real_only_a": 61,
+      "real_only_b": 62,
+      "same_haplotype_loci": 5,
+      "same_haplotype_loci_verified": 5,
+      "same_haplotype_only_a": 9,
+      "same_haplotype_only_b": 10,
+      "split": {
+        "only_a": 70,
+        "only_b": 72,
+        "shared": 3228
+      }
+    },
+    {
+      "a": "strelka2",
+      "b": "deepvariant",
+      "breakdown": {
+        "raw_discordant": 195,
+        "real": 91,
+        "removed_by_left_shift": 0,
+        "removed_by_split": 58,
+        "representation_share": 0.5333333333333333,
+        "same_haplotype": 46
+      },
+      "examples": [
+        {
+          "deepvariant": [
+            "10378933 GCT>G 0/1",
+            "10378951 C>CAT 0/1"
+          ],
+          "haplotypes": [
+            "TTATGTG(CT)7AC(AT)4"
+          ],
+          "kind": "замены против инделов",
+          "locus": "chr20:10378933–10378951",
+          "ref": "TTATGTG(CT)8AC(AT)3",
+          "shared": [],
+          "strelka2": [
+            "10378948 C>A 0/1",
+            "10378949 T>C 0/1",
+            "10378951 C>T 0/1"
+          ]
+        },
+        {
+          "deepvariant": [
+            "10451076 T>TAAA 0/1",
+            "10451077 T>TAA 0/1"
+          ],
+          "haplotypes": [
+            "GTCATTTAAAT(A)4TTAGTC"
+          ],
+          "kind": "инделы разложены по-разному",
+          "locus": "chr20:10451076–10451079",
+          "ref": "GTCA(T)4ATTTAGTC",
+          "shared": [
+            "10451079 T>A 0/1"
+          ],
+          "strelka2": [
+            "10451076 T>TAAATA 0/1",
+            "10451077 T>A 0/1"
+          ]
+        },
+        {
+          "deepvariant": [
+            "11406017 ATTT>A 1/1",
+            "11406021 CTT>C 1/1"
+          ],
+          "haplotypes": [
+            "ATGGATACTTCATG",
+            "ATGGATACTTCATG"
+          ],
+          "kind": "инделы разложены по-разному",
+          "locus": "chr20:11406017–11406023",
+          "ref": "ATGGATATTTC(T)4CATG",
+          "shared": [],
+          "strelka2": [
+            "11406017 ATTTCT>A 1/1",
+            "11406023 T>C 1/1"
+          ]
+        }
+      ],
+      "fn": 33,
+      "fp": 86,
+      "fp_genotype_only": 12,
+      "gt_differs": 19,
+      "kinds": {
+        "замены против инделов": 1,
+        "инделы разложены по-разному": 10
+      },
+      "loci": [
+        {
+          "chrom": "chr20_10000001_12000000",
+          "end": 61109,
+          "kind": "инделы разложены по-разному",
+          "start": 61050,
+          "verified": true
+        },
+        {
+          "chrom": "chr20_10000001_12000000",
+          "end": 378951,
+          "kind": "замены против инделов",
+          "start": 378933,
+          "verified": true
+        },
+        {
+          "chrom": "chr20_10000001_12000000",
+          "end": 451079,
+          "kind": "инделы разложены по-разному",
+          "start": 451076,
+          "verified": true
+        },
+        {
+          "chrom": "chr20_10000001_12000000",
+          "end": 1003712,
+          "kind": "инделы разложены по-разному",
+          "start": 1003697,
+          "verified": true
+        },
+        {
+          "chrom": "chr20_10000001_12000000",
+          "end": 1317863,
+          "kind": "инделы разложены по-разному",
+          "start": 1317824,
+          "verified": true
+        },
+        {
+          "chrom": "chr20_10000001_12000000",
+          "end": 1406023,
+          "kind": "инделы разложены по-разному",
+          "start": 1406017,
+          "verified": true
+        },
+        {
+          "chrom": "chr20_10000001_12000000",
+          "end": 1417980,
+          "kind": "инделы разложены по-разному",
+          "start": 1417946,
+          "verified": true
+        },
+        {
+          "chrom": "chr20_10000001_12000000",
+          "end": 1447339,
+          "kind": "инделы разложены по-разному",
+          "start": 1447311,
+          "verified": true
+        },
+        {
+          "chrom": "chr20_10000001_12000000",
+          "end": 1747231,
+          "kind": "инделы разложены по-разному",
+          "start": 1747203,
+          "verified": true
+        },
+        {
+          "chrom": "chr20_10000001_12000000",
+          "end": 1770403,
+          "kind": "инделы разложены по-разному",
+          "start": 1770331,
+          "verified": true
+        },
+        {
+          "chrom": "chr20_10000001_12000000",
+          "end": 1971345,
+          "kind": "инделы разложены по-разному",
+          "start": 1971326,
+          "verified": true
+        }
+      ],
+      "norm": {
+        "only_a": 42,
+        "only_b": 95,
+        "shared": 3205
+      },
+      "raw": {
+        "only_a": 75,
+        "only_b": 120,
+        "shared": 3121
+      },
+      "real_only_a": 19,
+      "real_only_b": 72,
+      "same_haplotype_loci": 11,
+      "same_haplotype_loci_verified": 11,
+      "same_haplotype_only_a": 23,
+      "same_haplotype_only_b": 23,
+      "split": {
+        "only_a": 42,
+        "only_b": 95,
+        "shared": 3205
+      }
+    }
+  ],
+  "same_haplotype_keys_total": 65,
+  "union": {
+    "norm": 3387,
+    "raw": 3370,
+    "split": 3387
+  }
+}

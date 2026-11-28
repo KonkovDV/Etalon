@@ -1,0 +1,63 @@
+# Fast checks on GitHub (the full run on data lives in .gitlab-ci.yml on the mirror).
+# Actions are pinned by commit SHA, not by tag (a tag can be moved).
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0  # v7.1.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+      - run: pip install -r requirements-dev.txt
+      - name: CWL validation
+        run: for f in cwl/tools/*.cwl cwl/workflows/*.cwl; do cwltool --validate "$f" >/dev/null || exit 1; done
+      - run: ruff check bin scripts tests
+      - run: ruff format --check bin scripts tests
+      - run: shellcheck -x scripts/*.sh slurm/*.sh slurm/*.sbatch
+      - name: Claims vs evidence, links and anchors in Markdown
+        run: |
+          python scripts/lint_claims.py
+          python scripts/check_links.py
+          python scripts/build_evidence.py --verify-source
+
+  test:
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        python: ["3.10", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0  # v7.1.0
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+      - run: pip install -r requirements-dev.txt
+      - run: python -m pytest --junitxml=var/junit.xml --cov=bin --cov=scripts --cov-report=term
+      - run: python scripts/check_no_skips.py var/junit.xml
+
+  measure-py27:
+    # bin/measure.py runs inside the hap.py image, which ships Python 2.7
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+      - run: |
+          docker run --rm -v "$PWD/bin:/b:ro" \
+            quay.io/biocontainers/hap.py@sha256:d63b963a6cb01b4830393b22369e7b91d298e4156dde353739e74e4cfa4f96d0 \
+            python /b/measure.py --step py27 --out /tmp/m.json -- sh -c 'sleep 0.2'

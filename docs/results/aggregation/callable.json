@@ -1,0 +1,171 @@
+{
+  "cohorts": {
+    "all": {
+      "depths": [
+        34.4564,
+        30.4071,
+        25.7006,
+        20.8686,
+        15.9717,
+        10.8143,
+        5.5088
+      ],
+      "het": {
+        "honest_af_mean": 0.4956718401646373,
+        "honest_off_by_0_1": 0.013205282112845138,
+        "naive_af_mean": 0.4750471617218316,
+        "naive_off_by_0_1": 0.09003601440576231,
+        "sites": 1666,
+        "truth_af": 0.5,
+        "unknown_share_mean": 0.13539701594923687
+      },
+      "hom": {
+        "honest_af_mean": 0.999002849002849,
+        "honest_off_by_0_1": 0.0026298487836949377,
+        "naive_af_mean": 0.9902319902319902,
+        "naive_off_by_0_1": 0.05982905982905983,
+        "sites": 1521,
+        "truth_af": 1.0,
+        "unknown_share_mean": 0.1759180989950221
+      },
+      "samples": 7,
+      "sites_without_known": 76
+    },
+    "ge20x": {
+      "depths": [
+        34.4564,
+        30.4071,
+        25.7006,
+        20.8686
+      ],
+      "het": {
+        "honest_af_mean": 0.49839163650985124,
+        "honest_off_by_0_1": 0.005428226779252111,
+        "naive_af_mean": 0.49819059107358266,
+        "naive_off_by_0_1": 0.011459589867310011,
+        "sites": 1658,
+        "truth_af": 0.5,
+        "unknown_share_mean": 0.021712907117008445
+      },
+      "hom": {
+        "honest_af_mean": 0.999671052631579,
+        "honest_off_by_0_1": 0.0006578947368421052,
+        "naive_af_mean": 0.9994243421052632,
+        "naive_off_by_0_1": 0.002631578947368421,
+        "sites": 1520,
+        "truth_af": 1.0,
+        "unknown_share_mean": 0.017598684210526315
+      },
+      "samples": 4,
+      "sites_without_known": 78
+    }
+  },
+  "gq_min": 20,
+  "points": [
+    {
+      "bases": 1972718,
+      "bases_all_difficult": 196857,
+      "bases_confident": 0.9981036316391902,
+      "bases_confident_all_difficult": 0.9924412136728692,
+      "bases_confident_not_in_all_difficult": 0.9987313196246779,
+      "bases_not_in_all_difficult": 1775861,
+      "label": "f1.0_s1",
+      "mean_depth": 34.4564,
+      "truth_sites": 3254,
+      "truth_sites_confident": 0.9652735095267363,
+      "truth_sites_difficult": 800,
+      "truth_sites_low": 113,
+      "truth_sites_low_difficult": 108
+    },
+    {
+      "bases": 1972718,
+      "bases_all_difficult": 196857,
+      "bases_confident": 0.9974248726883417,
+      "bases_confident_all_difficult": 0.9908664665213835,
+      "bases_confident_not_in_all_difficult": 0.9981518823826865,
+      "bases_not_in_all_difficult": 1775861,
+      "label": "f0.87_s1",
+      "mean_depth": 30.4071,
+      "truth_sites": 3254,
+      "truth_sites_confident": 0.9615857406269207,
+      "truth_sites_difficult": 800,
+      "truth_sites_low": 125,
+      "truth_sites_low_difficult": 119
+    },
+    {
+      "bases": 1972718,
+      "bases_all_difficult": 196857,
+      "bases_confident": 0.9954448633813855,
+      "bases_confident_all_difficult": 0.9875747369918265,
+      "bases_confident_not_in_all_difficult": 0.9963172793366147,
+      "bases_not_in_all_difficult": 1775861,
+      "label": "f0.725_s1",
+      "mean_depth": 25.7006,
+      "truth_sites": 3254,
+      "truth_sites_confident": 0.948678549477566,
+      "truth_sites_difficult": 800,
+      "truth_sites_low": 167,
+      "truth_sites_low_difficult": 147
+    },
+    {
+      "bases": 1972718,
+      "bases_all_difficult": 196857,
+      "bases_confident": 0.99016230398871,
+      "bases_confident_all_difficult": 0.9803766185606811,
+      "bases_confident_not_in_all_difficult": 0.9912470626924067,
+      "bases_not_in_all_difficult": 1775861,
+      "label": "f0.58_s1",
+      "mean_depth": 20.8686,
+      "truth_sites": 3254,
+      "truth_sites_confident": 0.931161647203442,
+      "truth_sites_difficult": 800,
+      "truth_sites_low": 224,
+      "truth_sites_low_difficult": 188
+    },
+    {
+      "bases": 1972718,
+      "bases_all_difficult": 196857,
+      "bases_confident": 0.9729124994043751,
+      "bases_confident_all_difficult": 0.9586044692340125,
+      "bases_confident_not_in_all_difficult": 0.9744985671738948,
+      "bases_not_in_all_difficult": 1775861,
+      "label": "f0.435_s1",
+      "mean_depth": 15.9717,
+      "truth_sites": 3254,
+      "truth_sites_confident": 0.8866011063306699,
+      "truth_sites_difficult": 800,
+      "truth_sites_low": 369,
+      "truth_sites_low_difficult": 258
+    },
+    {
+      "bases": 1972718,
+      "bases_all_difficult": 196857,
+      "bases_confident": 0.8712203163351274,
+      "bases_confident_all_difficult": 0.84500424165765,
+      "bases_confident_not_in_all_difficult": 0.8741264096683242,
+      "bases_not_in_all_difficult": 1775861,
+      "label": "f0.29_s1",
+      "mean_depth": 10.8143,
+      "truth_sites": 3254,
+      "truth_sites_confident": 0.7498463429625076,
+      "truth_sites_difficult": 800,
+      "truth_sites_low": 814,
+      "truth_sites_low_difficult": 402
+    },
+    {
+      "bases": 1972718,
+      "bases_all_difficult": 196857,
+      "bases_confident": 0.31702808003982325,
+      "bases_confident_all_difficult": 0.294381200566909,
+      "bases_confident_not_in_all_difficult": 0.319538522440664,
+      "bases_not_in_all_difficult": 1775861,
+      "label": "f0.145_s1",
+      "mean_depth": 5.5088,
+      "truth_sites": 3254,
+      "truth_sites_confident": 0.31315304240934233,
+      "truth_sites_difficult": 800,
+      "truth_sites_low": 2235,
+      "truth_sites_low_difficult": 667
+    }
+  ]
+}

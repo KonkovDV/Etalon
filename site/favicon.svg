@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <title>Etalon</title>
+  <rect width="32" height="32" rx="7" fill="#1f6fd1"/>
+  <!-- reads stacked on a reference: a pileup -->
+  <rect x="5" y="7" width="15" height="3" rx="1.5" fill="#fff"/>
+  <rect x="10" y="12" width="17" height="3" rx="1.5" fill="#fff" opacity=".85"/>
+  <rect x="6" y="17" width="12" height="3" rx="1.5" fill="#fff" opacity=".7"/>
+  <rect x="4" y="23" width="24" height="2" rx="1" fill="#fff" opacity=".55"/>
+</svg>

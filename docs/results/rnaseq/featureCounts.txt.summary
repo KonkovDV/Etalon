@@ -1,0 +1,15 @@
+Status	UHR_Rep1.bam	UHR_Rep2.bam	UHR_Rep3.bam	HBR_Rep1.bam	HBR_Rep2.bam	HBR_Rep3.bam
+Assigned	181253	120320	148597	94351	115588	102976
+Unassigned_Unmapped	0	0	0	0	0	0
+Unassigned_Read_Type	0	0	0	0	0	0
+Unassigned_Singleton	0	0	0	0	0	0
+Unassigned_MappingQuality	0	0	0	0	0	0
+Unassigned_Chimera	0	0	0	0	0	0
+Unassigned_FragmentLength	0	0	0	0	0	0
+Unassigned_Duplicate	0	0	0	0	0	0
+Unassigned_MultiMapping	16758	11327	13273	3588	4614	4038
+Unassigned_Secondary	0	0	0	0	0	0
+Unassigned_NonSplit	0	0	0	0	0	0
+Unassigned_NoFeatures	30455	31364	24357	18676	22085	20464
+Unassigned_Overlapping_Length	0	0	0	0	0	0
+Unassigned_Ambiguity	4703	3018	3874	2982	3777	3326
